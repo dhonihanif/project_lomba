@@ -1,0 +1,256 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  7.6 contact css
+/*----------------------------------------*/
+
+
+.tp-contact{
+    &-area{
+        background: #F4F6FD;
+        @media #{$md,$sm,$xs} {
+            padding-bottom: 100px;
+        }
+    }
+    &-icon{
+        & a{
+             color: var(--tp-theme-primary);
+             background: var(--tp-common-white);
+             box-shadow: 0px 0px 54px rgba(33, 68, 216, 0.1);
+             height: 70px;
+             width: 70px;
+             border-radius: 50%;
+             display: inline-block;
+             text-align: center;
+             line-height: 77px;
+             font-size: 24px;
+             font-weight: 400;
+             transition: all 0.3s ease-in-out;
+             margin-right: 30px;
+             position: relative;
+             overflow: hidden;
+             z-index: 1;
+             &::before {
+                 content: "";
+                 position: absolute;
+                 top: 0;
+                 right: -50px;
+                 bottom: 0;
+                 left: 0;
+                 border-right: 50px solid transparent;
+                 border-bottom: 80px solid var(--tp-theme-primary);
+                 transform: translateX(-100%);
+                 transition: all .3s ease-in-out;
+                 z-index: -1;
+               }
+             
+             @media #{$lg,$md,$sm,$xs} {
+                 margin-bottom: 20px;
+             }
+         }
+    }
+    &-phone,
+    &-mail,
+    &-location{
+        @media #{$lg} {
+            margin-right: 15px;
+        }
+        @media #{$xs} {
+            margin-right: 0px;
+        }
+        @media #{$md,$sm,$xs} {
+            margin-bottom: 25px;
+        }
+        @media #{$lg,$md,$sm,$xs} {
+            flex-wrap: wrap;
+        }
+       &:hover{
+         & .tp-contact-icon{
+            & a{
+                color: var(--tp-common-white);
+            &::before {
+                transform: translateX(0);
+                }
+            }
+         }
+       }
+        & .contact-inner{
+           & p{
+            font-weight: 500;
+            font-size: 15px;
+            margin-bottom: 12px;
+           }
+           & a{
+            font-weight: 700;
+            font-size: 26px;
+            color: var(--tp-text-2);
+            transition: .3s;
+            &:hover{
+                color: var(--tp-theme-primary);
+            }
+            @media #{$xl} {
+                font-size: 23px;
+            }
+           }
+        }
+    }
+    &-from{
+        padding: 25px 113px 100px 113px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 1;
+        @media #{$lg} {
+            padding: 25px 80px 80px 80px;
+        }
+        @media #{$md} {
+            padding: 25px 70px 70px 70px;
+        }
+        @media #{$sm} {
+            padding: 25px 40px 70px 40px;
+        }
+        @media #{$xs} {
+            padding: 25px 15px 60px 15px;
+        }
+        & form{
+            & p{
+                color: var(--tp-theme-secondary);
+            }
+        }
+    }
+    &-map {
+        height: 580px;
+        width: 100%;
+        margin-top: -155px;
+        & iframe {
+            height: 100%;
+            width: 100%;
+          }
+      }
+      &-submit{
+        & .tp-btn{
+            padding: 18px 34px;
+            & i{
+                margin-left: 10px;
+                transform: translateY(2px);
+            }
+        }
+    }
+    &-wrapper-inner {
+        @media #{$md,$sm,$xs} {
+            flex-wrap: wrap;
+        }
+    }
+}
+
+
+
+.tp-appointment{
+    &-shape{
+        & .shape-1{
+            position: absolute;
+            top: 73px;
+            left: 83px;
+        }
+        & .shape-2{
+            position: absolute;
+            bottom: 120px;
+            left: 37px;
+        }
+        & .shape-3{
+            position: absolute;
+            top: 40%;
+            right: 0;
+        }
+    }
+    &-from {
+        background: #f4f6fd;
+    }
+    &-section-title-wrapper{
+        padding-top: 135px;
+        @media #{$xs} {
+            padding-top: 115px;
+        }
+        & .tp-section__title{
+            text-transform: uppercase;
+            @media #{$sm} {
+                font-size: 32px;
+            }
+        }
+    }
+    &-from-inner{
+        padding: 65px 113px 120px 113px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 1;
+        @media #{$xl} {
+            padding: 65px 45px 120px 45px;
+        }
+        @media #{$lg} {
+            padding: 30px 45px 90px 45px;
+        }
+        @media #{$md} {
+            padding: 50px 90px 80px 90px;
+        }
+        @media #{$sm} {
+            padding: 30px 30px 70px 30px;
+        }
+        @media #{$xs} {
+            padding: 25px 15px 50px 15px;
+        }
+    }
+    &-thumb {
+        padding-top: 80px;
+        margin-left: -30px;
+        margin-bottom: 30px;
+        @media #{$xl,$lg,$md,$sm,$xs} {
+            margin-left: 0;
+        }
+        @media #{$xs} {
+            padding-top: 40px;
+        }
+        & img {
+            max-width: 100%;
+          }
+      }
+    &-input{
+        & input{
+            background: var(--tp-common-white);
+            width: 100%;
+            height: 58px;
+            outline: 0;
+            padding: 0 25px;
+            border: 1px solid #fff;
+            margin-bottom: 20px;
+            &::placeholder{
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 26px;
+                align-items: center;
+                color: var(--tp-text-body);
+            }
+            &:focus{
+                border-color: var(--tp-theme-primary);
+                &::placeholder{
+                    opacity: 0;
+                }
+            }
+            &.date{
+                padding-right: 50px;
+            }
+        }
+        & .date-icon {
+            position: absolute;
+            right: 25px;
+            top: 17px;
+          }
+    }
+    &-submit{
+        & .tp-btn{
+            padding: 18px 30px;
+            & i{
+                margin-left: 10px;
+                transform: translateY(2px);
+            }
+        }
+    }
+}

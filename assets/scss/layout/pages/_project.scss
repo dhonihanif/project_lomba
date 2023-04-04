@@ -1,0 +1,221 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/* 8.3 project css
+/*----------------------------------------*/
+
+
+.tp-project{
+    &-thumb{
+        z-index: 1;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+            &::after{
+                opacity: 1;
+                visibility: visible;
+            }
+            & .tp-project-title-wrapper{
+                & .tp-project-title{
+                    visibility: visible;
+                    opacity: 1;
+                    transform: translateY(5px);
+                }
+                & p{
+                    visibility: visible;
+                    opacity: 1;
+                    transform: translateY(5px);
+                }
+            }
+            & .tp-project-btn{
+                & a{
+                    visibility: visible;
+                    opacity: 1;
+                    transform: translateY(5px);
+                    transition: all .3s;
+                    & i{
+                        transition: all .3s;
+                    }
+                    &:hover{
+                        color: var(--tp-common-white);
+                        & i{
+                            transform: rotate(45deg);
+                        }
+                    }
+                }
+            }
+        }
+        &::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            left: 0px;
+            bottom: 0px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #2144D8 100%);
+            transition: all 0.3s ease-in-out;
+            z-index: 1;
+            opacity: 0;
+            visibility: hidden;
+          }
+    }
+    &-content{
+        position: absolute;
+        bottom: 28px;
+        left: 30px;
+        transition: 0.5s;
+        z-index: 2;
+        @media #{$xs3} {
+            bottom: 100px;
+        }
+    }
+    &-title-wrapper{
+        & .tp-project-title{
+            font-weight: 700;
+            font-size: 26px;
+            margin-bottom: 4px;
+            text-transform: capitalize;
+            color: var(--tp-common-white);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(40px);
+            transition: all .4s ease-in-out;
+            & a{
+                background-image: linear-gradient(#ffffff, #d8d8da), linear-gradient(#ffffff, #dbdbe6);
+                background-size: 0% 1px, 0 1px;
+                background-position: 100% 100%, 0 100%;
+                background-repeat: no-repeat;
+                transition: 0.3s ease;
+                &:hover {
+                    background-size: 0 2px, 100% 1px;
+                }}
+        }
+        & p{
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--tp-theme-secondary);
+            margin-bottom: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(40px);
+            transition: all .5s ease-in-out;
+        }
+    }
+}
+
+.tp-project-btn{
+    position: absolute;
+    bottom: 28px;
+    right: 30px;
+    transition: 0.5s;
+    z-index: 2;
+    @media #{$xs3} {
+        left: 30px;
+    }
+    & a{
+        background: var(--tp-theme-secondary);
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        display: inline-block;
+        text-align: center;
+        color: #0D1C37;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(40px);
+        transition: .3s;
+    }
+}
+
+.tp-project-details{
+    &-area{}
+    &-thumb-1{
+        & img{
+            height: 450px;
+            object-fit: cover;
+        }
+    }
+    &-thumb{
+        &-1,
+        &-2,
+        &-3,
+        &-4{
+            @media #{$md,$sm,$xs} {
+                margin-bottom: 30px;
+            }
+            & img{
+                max-width: 100%;
+            }
+        }
+    }
+    &-list {
+        background: #F4F6FD;
+        padding: 50px;
+        margin-bottom: 30px;
+        @media #{$xl} {
+            padding: 35px;
+        }
+        @media #{$lg} {
+            padding: 25px;
+        }
+        @media #{$xs3} {
+            padding: 15px;
+        }
+       & ul{
+        & li {
+            list-style: none;
+            background: var(--tp-common-white);
+            padding-left: 24px;
+            font-weight: 400;
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #6A6D7A;
+            @media #{$lg} {
+                padding-left: 15px;
+            }
+            & span{
+                position: relative;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 60px;
+                color: var(--tp-text-2);
+                width: 110px;
+                display: inline-block;
+                @media #{$xl} {
+                    width: 100px;
+                }
+                @media #{$lg,$xs3} {
+                    width: 80px;
+                }
+                &::after{
+                    position: absolute;
+                    content: ':';
+                    top: 0px;
+                    right: 20px;
+                    font-weight: 400;
+                    font-size: 16px;
+                    color: #6A6D7A;
+                    @media #{$lg,$xs3} {
+                        right: 8px;
+                    }
+                }
+            }
+        }
+       }
+     }
+     &-text{
+        & .tp-project-details-title{
+            font-weight: 700;
+            font-size: 35px;
+            margin-bottom: 22px;
+        }
+        & p{
+            font-weight: 400;
+            font-size: 16px;
+            color: #6A6D7A;
+            line-height: 30px;
+            margin-bottom: 20px;
+        }
+     }
+}

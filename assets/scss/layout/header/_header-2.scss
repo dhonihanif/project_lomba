@@ -1,0 +1,115 @@
+@use '../../utils' as *;
+/*----------------------------------------*/
+/*  3.2 Header Style 2
+/*----------------------------------------*/
+
+.tp-header-2{
+    &-area{ }
+    &-top{
+        &-info{
+            position: relative;
+            z-index: 2;
+            background-color: var(--tp-theme-primary);
+            clip-path: polygon(0 0, 100% 0, 97% 100%, 3% 100%);
+            & ul{
+                & li{
+                    position: relative;
+                    list-style: none;
+                    display: inline-block;
+                    padding-top: 12px;
+                    padding-bottom: 11px;
+                    &:not(:last-of-type)::after{
+                        content: "";
+                        border-right: 1px solid var(--tp-common-white);
+                        opacity: 0.21;
+                        position: absolute;
+                        height: 24px;
+                        right: -40px;
+                        top: 15px;
+                        @media #{$xl} {
+                            right: -25px;
+                        }
+                        @media #{$lg} {
+                            right: -30px;
+                        }
+                    }
+                    & a{
+                        font-weight: 500;
+                        font-size: 15px;
+                        color: var(--tp-common-white);
+                        & span{
+                            color: var(--tp-theme-secondary);
+                            display: inline-block;
+                            margin-right: 10px;
+                            transform: translateY(2px);
+                        }
+                    }
+                }
+            }
+        }
+        &-ml-60{
+            margin-left: 60px;
+            @media #{$xl} {
+                margin-left: 42px;
+            }
+            
+        }
+        &-ml-80{
+            margin-left: 80px;
+            @media #{$xl} {
+                margin-left: 42px;
+            }
+            @media #{$lg} {
+                margin-left: 48px;
+            }
+        }
+    }
+    &-space {
+        padding-left: 299px;
+        padding-right: 299px;
+      }
+    &-right{
+        padding-left: 100px;
+        @media #{$xl} {
+            padding-left: 40px;
+        }
+    }
+    &-bottom{
+        @media #{$lg,$md,$sm,$xs} {
+            background: #f4f6fd;
+        }
+    }
+}
+
+.tp-header-2-area{
+    & .tp-header-2-bottom.header__sticky.tp-header-sticky {
+        background: #f4f6fd;
+    }
+}
+
+.header-bg-shape::after {
+    position: absolute;
+    content: "";
+    top: -15px;
+    left: -60px;
+    background: #F4F6FD;
+    width: 111%;
+    height: 114%;
+    z-index: -1;
+    clip-path: polygon(40px 0px, 96% 0px, 100% 100%, 0px 100%);
+    @media #{$xxxl} {
+        width: 110%;
+    }
+    @media #{$xxl} {
+        left: -42px;
+        width: 108%;
+    }
+    @media #{$xl} {
+        left: -35px;
+        width: 105%;
+    }
+    @media #{$lg,$md,$sm,$xs} {
+        display: none;
+    }
+}
+

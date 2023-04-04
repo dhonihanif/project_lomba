@@ -1,0 +1,503 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  8.7 testimonial css
+/*----------------------------------------*/
+
+.tp-testimonial{
+    &-area{}
+    &-overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 307px;
+        background-color: #0D1C37;
+        z-index: -1;
+    }
+    &-shape{
+        & .shape-1{
+            position: absolute;
+            top: 42px;
+            left: 118px;
+            animation: soft-move-y 2s infinite linear;
+            @media #{$xxxxl,$xxxl} {
+                top: -62px;
+                left: 85px;
+            }
+            @media #{$xxl,$xl,$lg,$md} {
+                top: -70px;
+                left: 85px;
+            }
+            @media #{$sm,$xs} {
+                display: none;
+            }
+        }
+        & .shape-2{
+            position: absolute;
+            top: 42px;
+            left: 118px;
+            animation: soft-move-y 3s infinite linear;
+            @media #{$xxxxl,$xxxl} {
+                top: -62px;
+                left: 85px;
+            }
+            @media #{$xxl,$xl,$lg,$md} {
+                top: -70px;
+                left: 85px;
+            }
+            @media #{$sm,$xs} {
+                display: none;
+            }
+        }
+        & .shape-3{
+            position: absolute;
+            bottom: 150px;
+            right: 230px;
+            z-index: 1;
+            @media #{$xxl,$xl} {
+                right: 30px;
+            }
+        }
+        & .shape-4{
+            position: absolute;
+            bottom: -68%;
+            left: -20px;
+            z-index: -1;
+        }
+    }
+    &-wrapper{
+        position: relative;
+        background: var(--tp-theme-primary);
+    }
+    &-thumb {
+        padding-top: 60px;
+        padding-left: 60px;
+        @media #{$lg} {
+            padding-top: 98px;
+            padding-left: 20px; 
+        }
+        @media #{$md} {
+            padding-top: 15px;
+        }
+        @media #{$sm,$xs} {
+            padding-left: 0;
+            padding-top: 15px;
+        }
+        & img{
+            @media #{$sm,$xs} {
+                max-width: 100%;
+            }
+        }
+    }
+    &-user{
+        & img{
+            border-radius: 50%;
+            margin-bottom: 30px;
+            width: 60px;
+            height: 60px;
+        }
+    }
+    &-content{
+        padding: 76px 70px;
+        @media #{$xs} {
+            padding: 60px 40px;
+        }
+        & p{
+            font-size: 23px;
+            font-weight: 600;
+            line-height: 37px;
+            color: var(--tp-common-white);
+            margin-bottom: 32px;
+            @media #{$xs} {
+                font-size: 20px;
+            }
+        }
+        & span{
+            display: block;
+            font-weight: 700;
+            font-size: 25px;
+            color: var(--tp-common-white);
+            margin-bottom: 8px;
+        }
+        & .tp-testimonial-designation{
+            font-weight: 400;
+            font-size: 15px;
+            color: var(--tp-theme-secondary);
+        }
+    }
+}
+
+.testimonial-navigation-active{
+    margin: auto;
+    & .tp-testimonial-user{
+        & img{
+            transition: all .3s ease-in-out;
+        }
+    }
+    & .splide__track--nav > .splide__list > .splide__slide{
+        padding-top: 20px;
+        border: none;
+    }
+    & .splide__slide.is-visible.is-active{
+        border: none;
+        z-index: 1;
+        & .tp-testimonial-user{
+            & img{
+                transform: scale(1.5);
+            }
+        }
+    }
+}
+
+.tp-nav-wrap{
+    width: 185px;
+    overflow: hidden;
+    margin: auto;
+}
+
+.testimonial-main-active{
+    & .splide__pagination{
+        & .splide__pagination__page{
+            margin-left: 7px;
+            height: 10px;
+            width: 10px;
+            opacity: 1;
+            transition: all .3s ease-in-out;
+            &::after{
+                position: absolute;
+                content: "";
+                left: 50%;
+                top: 50%;
+                width: 20px;
+                height: 20px;
+                background-color: transparent;
+                border: 1px solid transparent;
+                border-radius: 50%;
+                transform: translate(-50%, -50%) scale(0);
+                transition: all .3s ease-in-out;
+            }
+        }
+        & .is-active{
+            transform: scale(1);
+            &::after{
+                border-color: var(--tp-common-white);
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    }
+}
+
+
+.tp-testimonial-2{
+    &-area{
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-size: cover;
+        @media #{$xs} {
+            padding-bottom: 120px;
+        }
+    }
+    &-bubble{
+        & .shape-1 {
+            position: absolute;
+            top: 70px;
+            left: 95px;
+        }
+        & .shape-2 {
+            position: absolute;
+            bottom: 38%;
+            right: 40%;
+        }
+    }
+    &-shape {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    &-shapeimg {
+        position: absolute;
+        bottom: 21%;
+        right: 14%;
+        z-index: 1;
+        & span{
+            display: inline-block;
+            & svg {
+                width: 240px;
+                stroke-dasharray: 560;
+                stroke-dashoffset: 560;
+                animation: section_stroke 3s linear forwards infinite;
+                -webkit-animation: section_stroke 3s linear forwards infinite;
+                color: var(--tp-theme-primary);
+            }
+        }
+        @media #{$xxxl} {
+            right: 6%;
+        }
+        @media #{$xxl,$xl} {
+            right: 1%;
+        }
+        @media #{$lg} {
+            bottom: 18%;
+            right: 0%;
+        }
+      }
+    &-overlay::after {
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 199, 0, 0.79) 100%);
+        z-index: 0;
+      }
+      &-section-title-wrapper{
+        & .tp-section__title{
+            @media #{$sm,$xs} {
+                font-size: 30px;
+                margin-bottom: 50px;
+            }
+        }
+      }
+    &-wrapper {
+        position: relative;
+        background: var(--tp-common-white);
+        padding: 35px 50px;
+        border-radius: 10px;
+        @media #{$lg} {
+            padding: 35px 40px;
+        }
+        @media #{$md} {
+            padding: 35px 20px;
+        }
+        @media #{$xs} {
+            padding: 35px 10px;
+        }
+        & p{
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 37px;
+            text-align: center;
+            color: var(--tp-text-2);
+            margin-bottom: 25px;
+        }
+        & .tp-testimonial-title{
+            font-weight: 700;
+            text-align: center;
+            font-size: 25px;
+            line-height: 29px;
+            margin-bottom: 5px;
+        }
+        & span{
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 28px;
+            text-align: center;
+            display: block;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: var(--tp-theme-primary);
+        }
+      }
+}
+
+.testimonial-active-2{
+    & .splide__arrows{
+        & .splide__arrow--prev{
+            position: absolute;
+            left: 44%;
+            top: 130%;
+            background: #F4F6FD;
+            font-size: 16px;
+            color: var(--tp-text-2);
+            cursor: pointer;
+            display: inline-block;
+            height: 62px;
+            width: 62px;
+            opacity: 1;
+            border-radius: 50%;
+            @media #{$xl} {
+                left: 43%;
+            }
+            @media #{$lg} {
+                left: 42%;
+            }
+            @media #{$md} {
+                left: 39%;
+            }
+            @media #{$sm} {
+                left: 35%;;
+            }
+            &::before{
+                position: absolute;
+                content: '';
+                height: 20px;
+                width: 2px;
+                background: #E0E5F7;
+                right: -18px;
+                top: 21px;
+            }
+            &:hover{
+                background: var(--tp-text-2);
+                color: var(--tp-common-white);
+            }
+        }
+        & .splide__arrow--next{
+            position: absolute;
+            height: 62px;
+            top: 130%;
+            right: 44%;
+            font-size: 16px;
+            background: #F4F6FD;
+            color: var(--tp-text-2);
+            cursor: pointer;
+            display: inline-block;
+            width: 62px;
+            opacity: 1;
+            border-radius: 50%;
+            @media #{$xl} {
+                right: 43%;
+            }
+            @media #{$lg} {
+                right: 41%;
+            }
+            @media #{$md} {
+                right: 38%;
+            }
+            @media #{$sm} {
+                right: 34%;
+            }
+            &:hover{
+                background: var(--tp-text-2);
+                color: var(--tp-common-white);
+            }
+        }
+    }
+}
+
+
+.tp-testimonial-3{
+    &-area{
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    &-shape{
+        & .shape-1 {
+            position: absolute;
+            bottom: 120px;
+            left: 0;
+        }
+        & .shape-2 {
+            position: absolute;
+            top: 130px;
+            right: 55px;
+        }
+    }
+    &-overlay::after {
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(180deg, #FFF 0%, rgba(244, 246, 253, 0.95) 100%);
+        z-index: 0;
+      }
+    &-from{
+        padding: 72px 60px 72px 62px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 1;
+        margin-left: 80px;
+        @media #{$xl,$lg,$md,$sm,$xs} {
+            margin-left: 0;
+        }
+        @media #{$md,$sm} {
+            margin-top: 130px;
+        }
+        @media #{$xs} {
+            padding: 50px 20px 50px 20px;
+        }
+        & .tp-brands-title{
+            font-weight: 700;
+            font-size: 42px;
+            margin-bottom: 30px;
+            @media #{$lg,$xs} {
+                font-size: 34px;
+            }
+        }
+        & .tp-btn{
+            padding: 18px 40px;
+            margin-top: 15px;
+            & i {
+            margin-left: 12px;
+            transform: translateY(2px);
+            }
+        }
+    }
+}
+
+.testimonial-active-3{
+    & .splide__arrows{
+        & .splide__arrow--prev{
+            position: absolute;
+            left: 38%;
+            top: 120%;
+            background: var(--tp-theme-primary);
+            font-size: 16px;
+            color: var(--tp-common-white);
+            cursor: pointer;
+            display: inline-block;
+            height: 62px;
+            width: 62px;
+            opacity: 1;
+            border-radius: 50%;
+            @media #{$xl} {
+                left: 36%;
+            }
+            @media #{$lg} {
+                left: 31%;
+            }
+            @media #{$md} {
+                left: 39%;
+            }
+            @media #{$sm} {
+                left: 36%;
+            }
+            &:hover{
+                background: var(--tp-theme-secondary);
+                color: var(--tp-text-2);
+            }
+        }
+        & .splide__arrow--next{
+            position: absolute;
+            height: 62px;
+            top: 120%;
+            right: 39%;
+            font-size: 16px;
+            background: var(--tp-theme-primary);
+            color: var(--tp-common-white);
+            cursor: pointer;
+            display: inline-block;
+            width: 62px;
+            opacity: 1;
+            border-radius: 50%;
+            @media #{$xl,$lg} {
+                right: 38%;
+            }
+            @media #{$md} {
+                right: 41%;
+            }
+            @media #{$sm} {
+                right: 37%;
+            }
+            &:hover{
+                background: var(--tp-theme-secondary);
+                color: var(--tp-text-2);
+            }
+        }
+    }
+}

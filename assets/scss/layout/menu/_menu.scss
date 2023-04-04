@@ -1,0 +1,177 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  4.1 Main menu css
+/*----------------------------------------*/
+
+.tp-main-menu{
+    @media #{$lg}{
+        margin-left: 50px;
+    }
+    & ul{
+        & li{
+            position: relative;
+            list-style: none;
+            display: inline-block;
+            transition: none;
+            &:not(:last-of-type){
+                margin-right: 50px;
+                @media #{$xl} {
+                    margin-right: 40px;
+                }
+            }
+            
+            & a{
+                display: inline-block;
+                font-weight: 500;
+                font-size: 16px;
+                color: var(--tp-text-2);
+                padding: 40px 0;
+                @media #{$xl} {
+                    padding: 35px 0;
+                }
+            }
+			&.has-dropdown{
+				& > a{
+                    position: relative;
+                    &::after{
+                        content: '\f107';
+                        @include transform(translateY(1px));
+                        font-size: 14px;
+                        color: var(--tp-common-black);
+                        font-family: var(--tp-ff-fontawesome);
+                        font-weight: 400;
+                        margin-left: 5px;
+                        display: inline-block;
+                    }
+                }
+			}
+			& .submenu{
+                position: absolute;
+                top: 120%;
+                left: 0;
+                width: 200px;
+                background: var(--tp-common-white);
+                padding: 20px 0;
+                z-index: 99;
+                visibility: hidden;
+                opacity: 0;
+                box-shadow: 0px 30px 70px 0px rgba(11, 6, 70, 0.08);
+                @extend %tp-transition-common;
+                & li{
+                    display: block;
+                    width: 100%;
+					margin: 0;
+                    padding: 0 25px;
+                    &.has-dropdown{
+                        & > a{
+                            &::after{
+								position: absolute;
+								top: 50%;
+                                right: 25px;
+                                @include transform(translateY(-50%) rotate(-90deg));
+                            }
+                        }
+                    }
+                    &:last-child{
+                        & a{
+                            border-bottom: 0;
+                        }
+                    }
+                    & a{
+                        position: relative;
+                        padding: 10px 0px;
+                        font-size: 13px;
+						color: var(--tp-common-black);
+						width: 100%;
+                        z-index: 1;
+                        border-bottom: 1px solid rgba(0,0,0,0.10);
+                        & span{
+                            transition: all .3s ease-in-out;
+                        }
+
+                        &::before{
+                            position: absolute;
+                            content: "";
+                            top: 52%;
+                            -webkit-transform: translateY(-50%);
+                            -moz-transform: translateY(-50%);
+                            -ms-transform: translateY(-50%);
+                            transform: translateY(-50%);
+                            left: 0px;
+                            height: 2px;
+                            width: 0;
+                            background: var(--tp-theme-primary);
+                            transition: all .3s ease-in-out;
+                        }
+                    }
+                    & .submenu{
+                        left: 120%;
+                        top:0;
+                        visibility: hidden;
+                        opacity: 0;
+                    }
+                    &:hover{
+                        & > a{
+                            color: var(--tp-theme-primary);
+                            & span{
+                            margin-left: 14px;
+                            }
+                           
+                            &::after{
+                                color: var(--tp-common-white);
+                            }
+                            &::before{
+                                width: 10px;
+                            }
+                            
+                        }
+                        & > .submenu{
+                            left: 100%;
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            &:hover{
+				& > a{
+					color: var(--tp-theme-primary);
+					&::after{
+						color: var(--tp-theme-primary);
+					}
+				}
+				& .submenu{
+					top: 100%;
+					visibility: visible;
+					opacity: 1;
+				}
+			}
+        }
+    }
+    &-2{
+        &-area{
+            @media #{$xl,$lg,$md,$sm,$xs} {
+                padding-left: 0;
+            }
+        }
+    }
+    &-3{
+        &-area{
+            @media #{$xl} {
+                justify-content: space-between;
+            }
+
+            & .tp-main-menu{
+                & ul {
+                    & li {
+                        & a{
+                            padding: 32px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

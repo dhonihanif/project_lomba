@@ -1,0 +1,249 @@
+/*----------------------------------------*/
+/*  2.4 Animations
+/*----------------------------------------*/
+
+/* pulse effect animation */
+
+@-webkit-keyframes pulse {
+	0% {
+	  -webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0.4);
+	}
+	70% {
+		-webkit-box-shadow: 0 0 0 45px rgba(255,255,255, 0);
+	}
+	100% {
+		-webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+	}
+}
+@keyframes pulse {
+0% {
+	-moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0.4);
+	box-shadow: 0 0 0 0 rgba(255,255,255, 0.4);
+}
+70% {
+	-moz-box-shadow: 0 0 0 45px rgba(255,255,255, 0);
+	box-shadow: 0 0 0 45px rgba(255,255,255, 0);
+}
+100% {
+	-moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+	box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+	}
+}
+
+
+// shape right to top animation
+@-webkit-keyframes soft-move-y{
+	0% {
+		transform: translateX(3px);
+	  }
+	  25% {
+		transform: translateX(7px);
+	  }
+	  50% {
+		transform: translateX(15px);
+	  }
+	  75% {
+		transform: translateX(7px);
+	  }
+	  100% {
+		transform: translateX(2px);
+	  }
+}
+
+// tp-line-dash
+@keyframes tp-line-dash {
+	100%{
+	   stroke-dashoffset: 0;
+	}
+}
+
+
+
+// shape round move animation
+@keyframes hero-round {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+// dansing shape
+@keyframes arrow-round {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(10deg);
+        -moz-transform: rotate(10deg);
+        -ms-transform: rotate(10deg);
+        -o-transform: rotate(10deg);
+        transform: rotate(10deg);
+    }
+}
+
+// tp rotate animation
+@keyframes tprotate{
+	0%{
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+	}
+	100%{
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+	}
+}
+
+/* 04. ========= btn-arrow-animation ========== */
+@keyframes tfLeftToRight {
+  49% {
+      transform: translateX(30%);
+  }
+  50% {
+      opacity: 0;
+      transform: translateX(-30%);
+  }
+  51% {
+      opacity: 1;
+  }
+}
+
+
+// img dansign
+@keyframes lara {
+	0% {
+        transform: translateX(-50%) translateY(-1px);
+    }
+	25% {
+        transform:translateX(-50%) translateY(-5px);
+    }
+    50% {
+        transform:translateX(-50%) translateY(-7px);
+    }
+    75% {
+        transform:translateX(-50%) translateY(-5px);
+    }
+    100% {
+        transform:translateX(-50%) translateY(-1px);
+    }
+}
+
+ @keyframes fadeInUp {
+  0% {
+   opacity:0;
+   -webkit-transform:translateY(20px);
+   -ms-transform:translateY(20px);
+   transform:translateY(20px)
+  }
+  100% {
+   opacity:1;
+   -webkit-transform:translateY(0);
+   -ms-transform:translateY(0);
+   transform:translateY(0)
+  }
+ }
+
+ @keyframes shine {
+	100% {
+		left: 125%;
+	}
+}
+
+//shape style
+@keyframes section_stroke {
+    0% {
+      stroke-dashoffset: 560;
+    }
+    50% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: -560;
+    }
+}
+
+
+//header animation
+@-moz-keyframes headerSlideDown {
+  0% {
+   margin-top:-150px
+  }
+  100% {
+   margin-top:0
+  }
+ }
+ @-ms-keyframes headerSlideDown {
+  0% {
+   margin-top:-150px
+  }
+  100% {
+   margin-top:0
+  }
+ }
+ @-webkit-keyframes headerSlideDown {
+  0% {
+   margin-top:-150px
+  }
+  100% {
+   margin-top:0
+  }
+ }
+ @keyframes headerSlideDown {
+  0% {
+   margin-top:-150px
+  }
+  100% {
+   margin-top:0
+  }
+ }
+ @-moz-keyframes headerSlideUp {
+  0% {
+   margin-top:0
+  }
+  100% {
+   margin-top:-150px
+  }
+ }
+ @-ms-keyframes headerSlideUp {
+  0% {
+   margin-top:0
+  }
+  100% {
+   margin-top:-150px
+  }
+ }
+ @-webkit-keyframes headerSlideUp {
+  0% {
+   margin-top:0
+  }
+  100% {
+   margin-top:-150px
+  }
+ }
+ @keyframes headerSlideUp {
+  0% {
+   margin-top:0
+  }
+  100% {
+   margin-top:-150px
+  }
+ }

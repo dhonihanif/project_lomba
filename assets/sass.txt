@@ -1,0 +1,3 @@
+sass --watch D:\Dropbox\pranto\kleaso\assets\scss\main.scss:D:\Dropbox\pranto\kleaso\assets\css\main.css
+
+sass --watch C:\Users\mdpra\Dropbox\pranto\kleaso\assets\scss\main.scss:C:\Users\mdpra\Dropbox\pranto\kleaso\assets\css\main.css

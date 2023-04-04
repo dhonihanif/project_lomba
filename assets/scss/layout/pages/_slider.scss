@@ -1,0 +1,136 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  7.1 Slider css
+/*----------------------------------------*/
+
+// slider-1-animation
+.hero-active {
+    transition: 1s;
+    & .is-visible {
+        
+        & .tp-hero__title-pre,
+        & .tp-hero__title,
+        & .tp-hero-content p,
+        & .tp-hero-list,
+        & .tp-hero-btn {
+            animation-fill-mode: both;
+            animation-name: fadeInUp;
+        }
+    }
+}
+
+.hero-active .is-visible .tp-hero__title-pre {
+    animation-delay: .6s;
+    animation-duration: .8s;
+}
+
+.hero-active .is-visible .tp-hero__title {
+    animation-delay: .8s;
+    animation-duration: 1s;
+}
+
+.hero-active .is-visible .tp-hero-content p {
+    animation-delay: 1s;
+    animation-duration: 1.2s;
+}
+
+.hero-active .is-visible .tp-hero-list {
+    animation-delay: 1.4s;
+    animation-duration: 1.3s;
+}
+
+.hero-active .is-visible .tp-hero-btn {
+    animation-delay: 1.4s;
+    animation-duration: 1.3s;
+}
+
+///////////// home 2 slider
+.hero-2-active {
+    transition: 1s;
+    & .is-visible {
+        
+        & .tp-hero-pre,
+        & .tp-hero-2-title,
+        & .tp-hero-2-content p,
+        & .tp-hero-2-btn,
+        & .tp-hero-2-thumb {
+            animation-fill-mode: both;
+            animation-name: fadeInUp;
+        }
+    }
+}
+
+.hero-2-active .is-visible .tp-hero-pre {
+    animation-delay: .6s;
+    animation-duration: .8s;
+}
+
+.hero-2-active .is-visible .tp-hero-2-title {
+    animation-delay: .8s;
+    animation-duration: 1s;
+}
+
+.hero-2-active .is-visible .tp-hero-2-content p {
+    animation-delay: 1s;
+    animation-duration: 1.2s;
+}
+
+.hero-2-active .is-visible .tp-hero-2-thumb {
+    animation-delay: .8s;
+    animation-duration: 1s;
+}
+
+.hero-2-active .is-visible .tp-hero-2-btn {
+    animation-delay: 1.4s;
+    animation-duration: 1.3s;
+}
+
+
+/////////// home 3 slider
+.hero-3-active {
+    transition: 1s;
+    & .is-visible {
+        
+        & .tp-hero-3-pre,
+        & .tp-hero-3-title,
+        & .tp-hero-3-content p,
+        & .tp-hero-2-btn,
+        & .tp-hero-3-thumb {
+            animation-fill-mode: both;
+            animation-name: fadeInUp;
+        }
+    }
+}
+
+.hero-3-active .is-visible .tp-hero-3-pre {
+    animation-delay: .6s;
+    animation-duration: .8s;
+}
+
+.hero-3-active .is-visible .tp-hero-3-title {
+    animation-delay: .8s;
+    animation-duration: 1s;
+}
+
+.hero-3-active .is-visible .tp-hero-3-thumb {
+    animation-delay: .8s;
+    animation-duration: 1s;
+}
+
+.hero-3-active .is-visible .tp-hero-3-content p {
+    animation-delay: 1s;
+    animation-duration: 1.2s;
+}
+
+.hero-3-active .is-visible .tp-hero-2-btn {
+    animation-delay: 1.4s;
+    animation-duration: 1.3s;
+}
+
+
+@keyframes  tpsmthslide {
+
+0% {transform: translate(0)}
+ 100% { transform: translateX(calc(-250px * 5))}   
+}

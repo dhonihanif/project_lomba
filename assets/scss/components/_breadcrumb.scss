@@ -1,0 +1,112 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.11 Breadcrumb
+/*----------------------------------------*/
+
+.breadcrumb{
+    &__title{
+        font-size: 48px;
+        color: var(--tp-common-white);
+        text-transform: uppercase;
+        @media #{$xs} {
+            font-size: 30px;
+        }
+        &-pre{
+            display: inline-block;
+            height: 24px;
+            line-height: 26px;
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 500;
+            background: var(--tp-theme-2);
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            padding: 0 7px;
+            margin-bottom: 12px;
+        }
+    }
+    &__list{
+        position: relative;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 16px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--tp-common-white);
+        background-color: var(--tp-theme-primary);
+        padding: 9px 23px;
+        display: inline-block;
+        margin-bottom: 22px;
+        &::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 10px;
+            background: var(--tp-theme-secondary);
+          }
+        & span{
+            font-size: 16px;
+            color: var(--tp-common-white);
+            font-weight: 500;
+            text-transform: capitalize;
+            & a{
+                &:hover{
+                    color: var(--tp-theme-secondary);
+                }
+            }
+        }
+        &-translate{
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        & .dvdr {
+            font-size: 10px;
+          }
+    }
+    &-style{
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        & .breadcrumb__list{
+            & span{
+                font-weight: 600;
+                font-size: 13px;
+                line-height: 16px;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--tp-common-white);
+            }
+        }
+    }
+    &__bg-overlay::after {
+        content: "";
+        background: #0D1C37;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.7;
+        z-index: -1;
+    }
+    &-shape{
+        & .shape-1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        & .shape-2 {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+        }
+    }
+}

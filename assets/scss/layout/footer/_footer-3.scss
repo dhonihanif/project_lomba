@@ -1,0 +1,359 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  6.3 Footer Style 2
+/*----------------------------------------*/
+
+.tp-footer-3{
+    &-area{}
+    &-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: var(--tp-theme-primary);
+        opacity: 0.9;
+      }
+    &-wrapper{
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    &-widget,
+    &-widget-1{
+        &-contact{
+            & .icon {
+                color: #233049;
+                background:var(--tp-theme-secondary);
+                height: 70px;
+                width: 70px;
+                border-radius: 50%;
+                display: inline-block;
+                text-align: center;
+                line-height: 77px;
+                font-size: 24px;
+                font-weight: 400;
+                transition: all 0.3s ease-in-out;
+                z-index: 1;
+                margin-right: 28px;
+                flex: 0 0 auto;
+                @media #{$xl,$lg} {
+                    margin-right: 15px;
+                }
+                @media #{$xs} {
+                    margin-right: 10px;
+                }
+            }
+            & .contact-inner{
+                z-index: 1;
+                & p{
+                    position: relative;
+                    font-weight: 500;
+                    font-size: 15px;
+                    color: var(--tp-theme-primary);
+                }
+                & a{
+                    font-weight: 700;
+                    font-size: 26px;
+                    color: #6A6D7A;
+                    &:hover{
+                        color: var(--tp-theme-secondary);
+                    }
+                    @media #{$xl} {
+                        font-size: 21px;
+                    }
+                    @media #{$xs} {
+                        font-size: 22px;
+                    }
+                }
+            }
+        }
+        & span{
+            position: relative;
+            font-weight: 700;
+            font-size: 23px;
+            display: block;
+            color: #233049;
+            padding-bottom: 32px;
+            &::before{
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 6px;
+                width: 60px;
+                background: var(--tp-theme-primary);
+            }
+            &::after{
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 6px;
+                width: 10px;
+                background: var(--tp-theme-secondary);
+            }
+        }
+        &-1{
+            & .tp-footer-list-float{
+                & li{
+                    width: 50%;
+                    float: left;
+                    @media #{$xl} {
+                        width: 33%;
+                    }
+                    @media #{$lg,$md} {
+                        width: 30%;
+                    }
+                    @media #{$xs} {
+                        width: 100%;
+                    }
+                }
+            }
+            & ul{
+                padding-left: 24px;
+                & li{
+                    list-style: none;
+                    margin-bottom: 12px;
+                    position: relative;
+                    &::before{
+                        position: absolute;
+                        bottom: 12px;
+                        left: -24px;
+                        content: "";
+                        width: 6px;
+                        height: 2px;
+                        margin-right: 3px;
+                        display: inline-block;
+                        background-color: #6A6D7A;
+                    }
+                    & a{
+                        font-weight: 400;
+                        font-size: 16px;
+                        color: #6A6D7A;
+                        background-image: linear-gradient(#fcfcff, #d8d8da), linear-gradient(#000, #dbdbe6);
+                        background-size: 0% 1px, 0 1px;
+                        background-position: 100% 100%, 0 100%;
+                        background-repeat: no-repeat;
+                        transition: 0.3s ease;
+                        &:hover {
+                            background-size: 0 1px, 100% 1px;
+                          }
+                    }
+                }
+            }
+        }
+    }
+    &-widget-2,
+    &-widget-3{
+        & span{
+            position: relative;
+            font-weight: 700;
+            font-size: 23px;
+            display: block;
+            color: #233049;
+            padding-bottom: 32px;
+            &::before{
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 6px;
+                width: 60px;
+                background: var(--tp-theme-primary);
+            }
+            &::after{
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 6px;
+                width: 10px;
+                background: var(--tp-theme-secondary);
+            }
+        }
+        & ul{
+            padding-left: 24px;
+            & li{
+                list-style: none;
+                margin-bottom: 12px;
+                position: relative;
+                &::before{
+                    position: absolute;
+                    bottom: 12px;
+                    left: -24px;
+                    content: "";
+                    width: 6px;
+                    height: 2px;
+                    margin-right: 3px;
+                    display: inline-block;
+                    background-color: #6A6D7A;
+                }
+                & a{
+                    font-weight: 400;
+                    font-size: 16px;
+                    color: #6A6D7A;
+                    background-image: linear-gradient(#fcfcff, #d8d8da), linear-gradient(#000, #dbdbe6);
+                    background-size: 0% 1px, 0 1px;
+                    background-position: 100% 100%, 0 100%;
+                    background-repeat: no-repeat;
+                    transition: 0.3s ease;
+                    &:hover {
+                        background-size: 0 1px, 100% 1px;
+                      }
+                }
+            }
+        }
+    }
+    &-col{
+        &-1{
+            margin-bottom: 30px;
+            padding-left: 35px;
+            @media #{$lg,$md,$sm,$xs} {
+                margin-bottom: 50px;
+                padding-left: 0;
+            }
+            @media #{$xl} {
+                padding-left: 0;
+            }
+            @media #{$xs} {
+                margin-left: 15px;
+            }
+        }
+        &-2{
+            padding-left: 25px;
+            @media #{$md,$sm,$xs} {
+                padding-left: 0;
+            }
+            @media #{$xs} {
+                margin-left: 15px;
+            }
+        }
+        &-3{
+            margin-left: -30px;
+            margin-bottom: 30px;
+            @media #{$lg,$md,$sm,$xs} {
+                margin-left: 0px;
+            }
+            @media #{$md,$sm} {
+                margin-top: 50px;
+            }
+            @media #{$xs} {
+                margin-top: 20px;
+                margin-left: 15px;
+            }
+        }
+        &-4{
+            margin-bottom: 30px;
+            @media #{$xl} {
+                padding-left: 0;
+            }
+            @media #{$md,$sm} {
+                margin-top: 50px;
+            }
+            @media #{$xs} {
+                margin-top: 20px;
+                margin-left: 15px;
+            }
+        }
+    }
+    &-copyright{
+        position: relative;
+        padding-top: 34px;
+        padding-bottom: 30px;
+        & .tp-footer-2-social {
+            padding-left: 35px;
+            @media #{$lg,$md,$sm,$xs} {
+                padding-left: 0;
+            }
+            & span{
+                color: #ECF3FF;
+                margin-right: 12px;
+            }
+            & a{
+                background: var(--tp-common-white);
+                margin-right: 12px;
+                margin-left: 0;
+               & i{
+                color: var(--tp-text-2);
+               }
+               &:hover{
+                background: var(--tp-theme-secondary);
+               }
+            }
+            }
+            & .tp-footer-2-copyright-text p{
+                color: var(--tp-common-white);
+            }
+    }
+    &-logo-content{
+        background-color: var(--tp-theme-primary);
+        padding: 18px 40px;
+        z-index: 1;
+        @media #{$lg,$md} {
+            padding: 18px 30px;
+        }
+        @media #{$xs} {
+            padding: 18px 20px;
+        }
+        & .tp-footer-social{
+            span{
+                color: var(--tp-common-white);
+            }
+        }
+    }
+    &-bg-overlay {
+        position: absolute;
+        z-index: 0;
+        left: 50%;
+        bottom: 0;
+        height: 942px;
+        width: calc(100% - 320px);
+        right: auto;
+        margin: 0 auto;
+        transform: translateX(-50%);
+        background: linear-gradient(180deg, #FFF 0%, #F4F6FD 35.42%, #F4F6FD 100%);
+        @media #{$xxxl} {
+            width: calc(100% - 200px);
+        }
+        @media #{$xxl} {
+            width: calc(100% - 70px);
+        }
+        @media #{$xl} {
+            width: calc(100% - 30px);
+        }
+        @media #{$lg} {
+            width: calc(100% - 20px);
+        }
+        @media #{$md} {
+            height: 1200px;
+            width: calc(100% - 20px);
+        }
+        @media #{$sm} {
+            height: 1350px;
+            width: calc(100% - 20px);
+        }
+        @media #{$xs} {
+            height: 2000px;
+            width: calc(100% - 15px);
+        }
+      }
+}
+
+
+// .tp-blog-3-gradient {
+// 	position: relative;
+//     &::before{
+//         position: absolute;
+//         content: '';
+//         z-index: 0;
+//         left: 50%;
+//         bottom: 0;
+//         height: 50%;
+//         width: calc(100% - 320px);
+//         right: auto;
+//         margin: 0 auto;
+//         transform: translateX(-50%);
+//         background: linear-gradient(180deg, #FFFFFF 0%, #F4F6FD 35.42%, #F4F6FD 100%);
+//     }
+// }

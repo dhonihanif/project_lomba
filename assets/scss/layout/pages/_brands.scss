@@ -1,0 +1,349 @@
+@use '../../utils' as *; 
+
+/*----------------------------------------*/
+/*  7.4 brand css
+/*----------------------------------------*/
+
+.tp-brands{
+    &-overlay{
+        background: linear-gradient(180deg, rgba(33, 68, 216, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+    &-shape {
+        position: absolute;
+        top: 76px;
+        right: 135px;
+        animation: arrow-round 2s infinite alternate;
+        @media #{$xl,$lg} {
+            right: 50px;
+        }
+        @media #{$md,$sm,$xs} {
+            display: none;
+        }
+      }
+      &-filter{
+        & .filter-1{
+            position: absolute;
+            top: -20px;
+            left: 0;
+            z-index: -1;
+        }
+        & .filter-2{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+        }
+      }
+    &-hover{
+        & img{
+            filter: grayscale(100%);
+            opacity: 45%;
+            transition: all 0.3s ease-in-out;
+            &:hover{
+                filter: none;
+                opacity: 1;
+            }
+        }
+    }
+    &-from{
+        padding: 72px 60px 72px 62px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 0;
+        margin-top: -195px;
+        @media #{$xl} {
+            padding: 55px 50px 55px 50px;
+        }
+        @media #{$lg} {
+            padding: 50px 40px 50px 40px;
+            margin-top: -125px;
+        }
+        @media #{$sm} {
+            padding: 65px 50px 65px 50px;
+        }
+        @media #{$xs} {
+            padding: 50px 20px 50px 20px;
+        }
+        @media #{$md,$sm,$xs} {
+            margin-top: 0;
+            margin-bottom: 80px;
+        }
+        & .tp-brands-title{
+            font-weight: 700;
+            font-size: 42px;
+            margin-bottom: 30px;
+            @media #{$lg,$xs} {
+                font-size: 30px;
+            }
+        }
+        &-input{
+            &.contact-mb{
+                margin-bottom: 20px;
+            }
+            margin-bottom: 13px;
+            & input,
+            textarea{
+                background: var(--tp-common-white);
+                width: 100%;
+                height: 58px;
+                outline: 0;
+                resize: none;
+                padding: 0 25px;
+                border: 1px solid #fff;
+                &::placeholder{
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 26px;
+                    align-items: center;
+                    color: var(--tp-text-body);
+                }
+                &:focus{
+                    &::placeholder{
+                        opacity: 0;
+                    }
+                }
+            }
+            &.contact-textarea{
+                & textarea{
+                    height: 250px;
+                }
+            }
+            &.appoinment-textarea{
+                & textarea{
+                    height: 190px;
+                }
+            }
+            & textarea{
+                width: 100%;
+                height: 140px;
+                padding: 15px 25px;
+                line-height: 1;
+            }
+            & .nice-select{
+                margin-bottom: 13px;
+                border-radius: 0;
+                height: 58px;
+                padding: 0px 25px;
+                border: none;
+                line-height: 58px;
+                &:focus{
+                    border: none;
+                }
+                & span{
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 26px;
+                    color: var(--tp-text-body);
+                    &:active{
+                        border: none;
+                    }
+                }
+                & .list{
+                    border-radius: 0;
+                }
+            }
+        }
+            &-overlay::after {
+                position: absolute;
+                content: '';
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                z-index: -1;
+                background: linear-gradient(180deg, #FFF 0%, rgba(33, 68, 216, 0.81) 100%);
+              }
+            & .tp-btn{
+                padding: 18px 37px;
+                margin-top: 15px;
+                & i {
+                margin-left: 10px;
+                transform: translateY(2px);
+                }
+            }
+        }
+        &-input-4{
+            & textarea{
+                background: var(--tp-common-white);
+                width: 100%;
+                height: 58px;
+                outline: 0;
+                resize: none;
+                padding: 0 25px;
+                border: none;
+                margin-bottom: 13px;
+                &::placeholder{
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 26px;
+                    align-items: center;
+                    color: var(--tp-text-body);
+                }
+                &:focus{
+                    &::placeholder{
+                        opacity: 0;
+                    }
+                }
+            }
+            
+        }
+        &-input-3{
+        & .nice-select {
+            margin-bottom: 13px;
+        }
+    }
+}
+
+.tp-brands-2{
+    &-area{
+        @media #{$xs} {
+            padding-bottom: 40px;
+        }
+    }
+    &-wrapper{
+        @media #{$md} {
+            margin-bottom: 60px;
+        }
+        @media #{$xs,$sm,} {
+            margin-bottom: 50px;
+        }
+        & .tp-section__title{
+            text-transform: uppercase;
+        }
+    }
+    &-top{
+    padding-left: 45px;
+    position: relative;
+    @media #{$xl,$lg,$md,$sm,$xs} {
+        padding-left: 0;
+    }
+    @media #{$xs} {
+        flex-wrap: wrap;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -30px;
+        left: 30px;
+        background: #EDF1FF;
+        height: 2px;
+        width: 700px;
+        @media #{$xl} {
+            left: 15px;
+            width: 600px;
+            }
+        @media #{$lg,$sm} {
+            left: 0px;
+            width: 530px;
+            }
+        @media #{$md} {
+            left: 0px;
+            }
+        @media #{$xs} {
+           content: none;
+            }
+        }
+        &-img{
+        margin-right: 90px;
+        position: relative;
+        @media #{$xl} {
+            margin-right: 70px;
+        }
+        @media #{$lg,$sm} {
+            margin-right: 40px;
+        }
+        @media #{$xs} {
+            margin-right: 0px;
+            width: 50%;
+            text-align: center;
+        }
+        & img{
+            filter: grayscale(100%);
+            opacity: 45%;
+            transition: all .3s ease-in-out;
+            &:hover{
+                filter: none;
+                opacity: 1;
+            }
+            @media #{$xs} {
+                margin-bottom: 30px;
+            }
+        }
+        &:not(:last-of-type)::after {
+            position: absolute;
+            content: '';
+            width: 2px;
+            height: 138px;
+            background: #EDF1FF;
+            margin-left: 42px;
+            bottom: -30px;
+            @media #{$lg,$sm} {
+                margin-left: 20px;
+            }
+            @media #{$lg,$sm} {
+                margin-left: 20px;
+            }
+            @media #{$xs} {
+                content: none;
+            }
+            }
+        }
+    }
+    &-bottom {
+        padding-left: 120px;
+        margin-top: 60px;
+        position: relative;
+        @media #{$xl} {
+            padding-left: 72px;
+        }
+        @media #{$lg} {
+            padding-left: 20px;
+        }
+        @media #{$md} {
+            padding-left: 70px;
+        }
+        @media #{$sm,$xs} {
+            padding-left: 0px;
+        }
+        @media #{$xs} {
+            margin-top: 0;
+            flex-wrap: wrap;
+        }
+        &-img{
+        margin-right: 90px;
+        position: relative;
+        @media #{$sm} {
+            margin-right: 80px;
+        }
+        @media #{$xs} {
+            margin-right: 0px;
+            width: 50%;
+            text-align: center;
+        }
+        & img{
+            filter: grayscale(100%);
+            opacity: 45%;
+            transition: all .3s ease-in-out;
+            &:hover{
+                filter: none;
+                opacity: 1;
+            }
+            @media #{$xs} {
+                margin-bottom: 30px;
+            }
+        }
+        &:not(:last-of-type)::after {
+            position: absolute;
+            content: "";
+            width: 2px;
+            height: 138px;
+            background: #EDF1FF;
+            margin-left: 42px;
+            bottom: 0px;
+            @media #{$xs} {
+                content: none;
+            }
+        }
+        }
+    }
+}

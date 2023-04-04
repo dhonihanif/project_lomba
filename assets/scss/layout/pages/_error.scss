@@ -1,0 +1,90 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  7.8 error css
+/*----------------------------------------*/
+
+.tp-error-page{
+    &-area{
+        @media #{$lg,$md} {
+            padding-top: 150px;
+        }
+        @media #{$xs} {
+            padding-top: 100px;
+            padding-bottom: 80px;
+        }
+    }
+    &-shape{
+        & .shape-1 {
+            position: absolute;
+            top: 105px;
+            left: 185px;
+        }
+        & .shape-2 {
+            position: absolute;
+            top: 57%;
+            left: 36%;
+        }
+        & .shape-3 {
+            position: absolute;
+            top: 30%;
+            right: 70px;
+        }
+    }
+    &-wrapper{
+            margin-left: 100px;
+            @media #{$lg,$md} {
+                margin-left: 60px;
+            }
+            @media #{$sm,$xs} {
+                margin-left: 0px;
+            }
+        @media #{$md,$sm,$xs} {
+            margin-bottom: 50px;
+        }
+        & p{
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 32px;
+            margin-bottom: 30px;
+            @media #{$md,$sm,$xs} {
+                margin-bottom: 15px;
+            }
+            & br{
+                @media #{$xl,$lg,$md,$xs} {
+                    display: none;
+                }
+            }
+        }
+    }
+    &-title{
+        font-weight: 700;
+        font-size: 46px;
+        text-transform: uppercase;
+        color: var(--tp-text-2);
+        margin-bottom: 30px;
+        @media #{$lg} {
+            font-size: 40px;
+        }
+        @media #{$xs} {
+            font-size: 38px;
+        }
+        @media #{$md} {
+            margin-bottom: 15px;
+        }
+        & br{
+            @media #{$xl,$lg,$md,$sm,$xs} {
+                display: none;
+            }
+        }
+        & span{
+            background: var(--tp-theme-primary);
+            color: var(--tp-common-white);
+        }
+    }
+    &-thumb {
+        & img {
+            max-width: 100%;
+        }
+    }
+}
