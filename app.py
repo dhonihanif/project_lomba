@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect, session, url_for
 from flask_mysqldb import MySQL
 from flask_assets import Environment, Bundle
-import os, html, json
+import json
+import pandas as pd
 
 app = Flask(__name__)
 assets = Environment(app)
@@ -103,6 +104,10 @@ def contact():
         user = session["username"]
     return render_template("contact.html", login=login, user=user)
 
+@app.template_global(name='zip')
+def _zip(*args, **kwargs): #to not overwrite builtin zip in globals
+    return __builtins__.zip(*args, **kwargs)
+
 @app.route("/statistics/<name_destination>")
 def statistics(name_destination):
     # data statistik
@@ -115,23 +120,31 @@ def statistics(name_destination):
     lombok = json.load(open("static/assets/json/lombok.json"))
     ntt = json.load(open("static/assets/json/ntt.json"))
 
-    data_tahun = [tahun[i] for i in tahun]
     if name_destination == "bali":
-        data = [bali[i] for i in bali]
+        data = [bali[i] for i in bali if bali[i] != None]
+        tahun = [tahun[i] for i in tahun if bali[i] != None]
     elif name_destination == "raja_ampat":
-        data = [raja_ampat[i] for i in raja_ampat]
+        data = [raja_ampat[i] for i in raja_ampat if raja_ampat[i] != None]
+        tahun = [tahun[i] for i in tahun if raja_ampat[i] != None]
     elif name_destination == "yogyakarta":
-        data = [yogyakarta[i] for i in yogyakarta]
+        data = [yogyakarta[i] for i in yogyakarta if yogyakarta[i] != None]
+        tahun = [tahun[i] for i in tahun if yogyakarta[i] != None]
     elif name_destination == "palembang":
-        data = [palembang[i] for i in palembang]
+        data = [palembang[i] for i in palembang if palembang[i] != None]
+        tahun = [tahun[i] for i in tahun if palembang[i] != None]
     elif name_destination == "tana_toraja":
-        data = [tana_toraja[i] for i in tana_toraja]
+        data = [tana_toraja[i] for i in tana_toraja if tana_toraja[i] != None]
+        tahun = [tahun[i] for i in tahun if tana_toraja[i] != None]
     elif name_destination == "lombok":
-        data = [lombok[i] for i in lombok]
+        data = [lombok[i] for i in lombok if lombok[i] != None]
+        tahun = [tahun[i] for i in tahun if lombok[i] != None]
     elif name_destination == "ntt":
-        data = [ntt[i] for i in ntt]
+        data = [ntt[i] for i in ntt if ntt[i] != None]
+        tahun = [tahun[i] for i in tahun if ntt[i] != None]
     
-    return render_template(f"./statistics/{name_destination}.html", tahun=data_tahun, data=data)
+    df = pd.DataFrame({"tahun": [i for i in tahun], "data": [i for i in data]})
+    return render_template(f"./statistics/{name_destination}.html", tahun=tahun, data=data,
+                           min=df["data"].min(), max=df["data"].max(), mean=df["data"].mean(), variance=df["data"].var())
 
 if __name__ == "__main__":
     app.run(debug=True)
