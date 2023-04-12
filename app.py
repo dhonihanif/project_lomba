@@ -155,5 +155,26 @@ def statistics(name_destination):
     return render_template(f"./statistics/{name_destination}.html", tahun=tahun, data=data,
                            min=df["data"].min(), max=df["data"].max(), mean=df["data"].mean(), variance=df["data"].var())
 
+@app.route("/create_posting", methods=["GET", "POST"])
+def create_posting():
+    if request.method == "POST":
+        title = request.form.get("title")
+        sub_title = request.form.get("sub_title")
+        image = request.files["image"]
+        location = request.form.get("location")
+        source = request.form.get("source")
+        destination = request.form.get("destination")
+        content = request.form.get("content")
+        username = session["username"]
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO posting VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
+                    % (title, sub_title, image, location, source, destination, content, username))
+        cur2 = cur.fetchall()
+        mysql.connection.commit()
+        cur.close()
+        return redirect(url_for(f"/destination/destination/destination"))
+    else:
+        return render_template("create_posting.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
