@@ -25,17 +25,17 @@ def index():
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM login")
     curfet = cur.fetchall()
-    user = [i[2] for i in curfet]
+    name_user = [i[2] for i in curfet]
     login = False
     if "username" in session:
         login = True
-        return render_template("index.html", login=login, user=user, user2=session["username"])
-    return render_template("index.html", login=login, user=user)
+        return render_template("index.html", login=login, name_user=name_user, user2=session["username"])
+    return render_template("index.html", login=login, name_user=name_user)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        username = request.form.get("name")
+        username = request.form.get("email")
         password = request.form.get("password")
         user = [i[0] for i in curfet]
         pw = [i[1] for i in curfet]
@@ -47,15 +47,15 @@ def login():
             session["nama"] = name
             return redirect(url_for("index"))
         else:
-            return render_template("login.html")
+            return render_template("./login/login.html")
 
     else:
-        return render_template("login.html")
+        return render_template("./login/login.html")
     
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        username = request.form.get("username")
+        username = request.form.get("email")
         password = request.form.get("password")
         name = request.form.get("name")
         usia = request.form.get("usia")
@@ -68,7 +68,16 @@ def register():
         cur.close()
         return redirect(url_for("login"))
     else:
-        return render_template("register.html")
+        return render_template("./login/register.html")
+
+@app.route("/forgot_password")
+def forgot_password():
+    login = False
+    user = ""
+    if "username" in session:
+        login = True
+        user = session["username"]
+    return render_template("./login/forgot_password.html")
 
 @app.route("/logout")
 def logout():

@@ -101,7 +101,7 @@
                      <div class="row align-items-center">
                         <div class="col-6 col-lg-6 col-xl-2">
                            <div class="tp-header-logo tp-header-logo-border">
-                              <a href="index.html">
+                              <a href="">
                                  <img src="/static/assets/img/logo/logo.png" alt="">
                               </a>
                            </div>
@@ -151,9 +151,15 @@
                            <div class="tp-header-right d-flex align-items-center justify-content-xxl-end">
                               <div class="tp-header-market mr-50 p-relative d-none d-xxl-block">
                                  </div>
+                                 {% if login %}
+                                 <div class="tp-header-btn p-relative d-none d-xl-block">
+                                    <a class="tp-btn" href="/logout"><i class="fa-light fa-arrow-right"></i> Logout</a>
+                                 </div>
+                                 {% else %}
                                  <div class="tp-header-btn p-relative d-none d-xl-block">
                                     <a class="tp-btn" href="/login"><i class="fa-light fa-arrow-right"></i> Login</a>
                                  </div>
+                                 {% endif %}
                                  <div class="mobile-menu d-block d-xl-none text-end">
                                     <button class="tp-side-action tp-toogle hamburger-btn">
                                        <span></span>
@@ -245,21 +251,22 @@
                                           <span class="tp-hero__title-pre">
                                              Ready to serve you
                                           </span>
-                                          <h3 class="tp-hero__title">Indonesia Tourism <br> Place & Food</h3>
+                                          <h3 class="tp-hero__title">Indonesia Tourism <br> Destination & Culture</h3>
                                        </div>
-                                       <p>You can find the culture and food aspects of <br> Indonesian all at once in here</p>
+                                       <p>You can find the destination and culture of <br> Indonesian all at once in here</p>
                                        <div class="row">
                                           <div class="col-12 col-md-8">
                                              <ul class="tp-hero-list">
-                                                <li><i class="fa-light fa-circle-check"></i> Indonesian Food</li>
                                                 <li><i class="fa-light fa-circle-check"></i> Indonesian Place</li>
                                                 <li><i class="fa-light fa-circle-check"></i> Indonesian Culture</li>
+                                                <li><i class="fa-light fa-circle-check"></i> Indonesian Statistics</li>
+                                                
                                              </ul>
                                           </div>
                                        </div>
                                        <div class="tp-hero-btn">
-                                          <a class="tp-btn-2" href="service.html">
-                                             <span class="tp-hero-btn-text">Take Food & Place</span>
+                                          <a class="tp-btn-2" href="/destination/bali/bali">
+                                             <span class="tp-hero-btn-text">See Destination</span>
                                              <span class="tp-hero-btn-icon"><i class="fa-regular fa-arrow-right-long"></i></span>
                                           </a>
                                        </div>
@@ -286,21 +293,21 @@
                                           <span class="tp-hero__title-pre">
                                              Ready to serve you
                                           </span>
-                                          <h3 class="tp-hero__title">Indonesia Tourism <br> Place & Food</h3>
+                                          <h3 class="tp-hero__title">Indonesia Tourism <br> Destination & Culture</h3>
                                        </div>
-                                       <p>You can find the culture and food aspects of <br> Indonesian all at once in here</p>
+                                       <p>You can find the destination and culture of <br> Indonesian all at once in here</p>
                                        <div class="row">
                                           <div class="col-8">
                                           <ul class="tp-hero-list">
-                                             <li><i class="fa-light fa-circle-check"></i> Indonesian Food</li>
                                              <li><i class="fa-light fa-circle-check"></i> Indonesian Place</li>
                                              <li><i class="fa-light fa-circle-check"></i> Indonesian Culture</li>
+                                             <li><i class="fa-light fa-circle-check"></i> Indonesian Statistics</li>
                                           </ul>
                                           </div>
                                        </div>
                                        <div class="tp-hero-btn">
-                                          <a class="tp-btn-2" href="service.html">
-                                             <span class="tp-hero-btn-text">Take Food & Place</span>
+                                          <a class="tp-btn-2" href="/destination/bali/bali">
+                                             <span class="tp-hero-btn-text">See Destination</span>
                                              <span class="tp-hero-btn-icon"><i class="fa-regular fa-arrow-right-long"></i></span>
                                           </a>
                                        </div>
@@ -327,21 +334,21 @@
                                           <span class="tp-hero__title-pre">
                                              Ready to serve you
                                           </span>
-                                          <h3 class="tp-hero__title">Indonesia Tourism <br> Place & Food</h3>
+                                          <h3 class="tp-hero__title">Indonesia Tourism <br> Destination & Culture</h3>
                                        </div>
-                                       <p>You can find the culture and food aspects of <br> Indonesian all at once in here</p>
+                                       <p>You can find the destination and culture <br> Indonesian all at once in here</p>
                                        <div class="row">
                                           <div class="col-8">
                                           <ul class="tp-hero-list">
-                                             <li><i class="fa-light fa-circle-check"></i> Indonesian Food</li>
                                              <li><i class="fa-light fa-circle-check"></i> Indonesian Place</li>
                                              <li><i class="fa-light fa-circle-check"></i> Indonesian Culture</li>
+                                             <li><i class="fa-light fa-circle-check"></i> Indonesian Statistics</li>
                                           </ul>
                                           </div>
                                        </div>
                                        <div class="tp-hero-btn">
-                                          <a class="tp-btn-2" href="service.html">
-                                             <span class="tp-hero-btn-text">Take Food & Place</span>
+                                          <a class="tp-btn-2" href="/destination/bali/bali">
+                                             <span class="tp-hero-btn-text">See Destination</span>
                                              <span class="tp-hero-btn-icon"><i class="fa-regular fa-arrow-right-long"></i></span>
                                           </a>
                                        </div>
@@ -450,168 +457,8 @@
          </section>
       <!-- features area end -->
 
-      <!-- about area start -->
-         <section class="tp-about-area pt-120 pb-120">
-         <div class="container">
-            <div class="row">
-               
-               <div class="tp-about-section-title-wrapper wow fadeInRight" data-wow-duration="1s"
-                  data-wow-delay=".3s">
-                     <span class="tp-section__title-pre">
-                        About Us
-                     </span>
-                     <h3 class="tp-section__title mb-25">Our Story: Celebrating the Richness and Diversity of Indonesian Culture</h3>
-                     <p>Sharing the Beauty of Indonesian Culture: Our Mission and Vision.</p>
-                     <div class="tp-about-inner-wrapper d-flex flex-wrap">
-                        <div class="tp-about-inner d-flex">
-                           <div class="tp-about-inner-thumb">
-                              <i class="flaticon-cpu"></i>
-                           </div>
-                           <div class="tp-about-inner-text">
-                              <h4 class="tp-about-inner-title">Mission</h4>
-                              <p>We are dedicated to sharing the beauty and uniqueness<br> of Indonesian culture with the world through various mediums</p>
-                           </div>
-                        </div>
-                        <div class="tp-about-inner d-flex">
-                           <div class="tp-about-inner-thumb">
-                              <i class="flaticon-medal"></i>
-                           </div>
-                           <div class="tp-about-inner-text">
-                              <h4 class="tp-about-inner-title">Vision</h4>
-                              <p>Our vision is to create a legacy that honors and celebrates <br>the richness and diversity of Indonesian culture for tourism to come. </p>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               
-            </div>
-         </div>
-         </section>
-      <!-- about area end -->
-
-      <!-- team area start -->
-         <section class="tp-team-area pt-120 pb-80 p-relative">
-            <div class="tp-team-bg" data-background="/static/assets/img/team/team-bg.jpg"></div>
-            <div class="container">
-               <div class="row">
-                  <div class="col-xl-12">
-                     <div class="tp-team-section-title-wrapper text-center mb-70">
-                        <span class="tp-section__title-pre">
-                           Our Team
-                        </span>
-                        <h3 class="tp-section__title">Qualified Team Member</h3>
-                     </div>
-                  </div>
-               </div>
-               <div class="row">
-                  
-                  <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                     <div class="tp-team-wrapper p-relative wow fadeInLeft" data-wow-duration="1s"
-                     data-wow-delay=".4s">
-                        <div class="tp-team-thumb">
-                           <a href="team-details.html"><img src="/static/assets/img/team/team-1.jpg" alt=""></a>
-                        </div>
-                        <div class="tp-team-content text-center mt-30">
-                           <h4 class="tp-team-title-1"><a href="team-details.html">Dhoni Hanif Supriyadi</a></h4>
-                           <p>FullStack Developer</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                     <div class="tp-team-wrapper p-relative wow fadeInLeft" data-wow-duration="1s"
-                     data-wow-delay=".3s">
-                        <div class="tp-team-thumb">
-                           <a href="team-details.html"><img src="/static/assets/img/team/team-2.png" alt=""></a>
-                        </div>
-                        <div class="tp-team-content text-center mt-30">
-                           <h4 class="tp-team-title-1"><a href="team-details.html">Dhani Munir Supriyadi</a></h4>
-                           <p>Cloud Computing</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                     <div class="tp-team-wrapper p-relative wow fadeInRight" data-wow-duration="1s"
-                     data-wow-delay=".3s">
-                        <div class="tp-team-thumb">
-                           <a href="team-details.html"><img src="/static/assets/img/team/team-3.jpg" alt=""></a>
-                        </div>
-                        <div class="tp-team-content text-center mt-30">
-                           <h4 class="tp-team-title-1"><a href="team-details.html">Wahyu Nur Agustusanto</a></h4>
-                           <p>UI/UX Designer</p>
-                        </div>
-                     </div>
-                  </div>
-                  
-               </div>
-            </div>
-         </section>
-      <!-- team area end -->
-
       
-      <!-- blog area start -->
-         <section class="tp-blog-area p-relative pb-90">
-            <div class="tp-blog-shape">
-               <img src="/static/assets/img/blog/shape.png" alt="">
-            </div>
-            <div class="container">
-               <div class="row">
-                  <div class="col-lg-12">
-                     <div class="tp-blog-section-title-wrapper text-center mb-80">
-                        <span class="tp-section__title-pre">
-                           latest news
-                        </span>
-                        <h3 class="tp-section__title">latest blog and article</h3>
-                     </div>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-md-6 col-lg-4">
-                     <div class="tp-blog-start mb-30 wow fadeInUp" data-wow-duration="1s"
-                     data-wow-delay=".3s">
-                        <div class="tp-blog-inner" data-background="/static/assets/img/blog/blog-3.jpg">
-                           <h3 class="tp-blog-title">Read the blog <br> thats define <br> Indonesian Culture.</h3>
-                        <div class="tp-blog-start-btn">
-                           <a class="tp-btn" href="/destination/bali/bali">Started Now <i class="fa-regular fa-arrow-right-long"></i></a>
-                        </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-6 col-lg-4"> 
-                     <div class="tp-blog-wrapper mb-30 wow fadeInUp" data-wow-duration="1s"
-                     data-wow-delay=".4s">
-                        <div class="tp-blog-thumb">
-                           <a href="/destination/bali/bali"><img src="/static/assets/img/blog/blog-1.jpg" alt=""></a>
-                           <span class="tp-section__title-pre">01-April-2023</span>
-                        </div>
-                        <div class="tp-blog-content">
-                           <h3 class="tp-blog-title"><a href="/destination/bali/bali">Bali</a></h3>
-                           <p>Bali is a province of Indonesia located <br> in the westernmost end of the Lesser Sunda Islands </p>
-                           <div class="tp-blog-btn">
-                              <a class="tp-btn" href="/destination/bali/bali">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-6 col-lg-4"> 
-                     <div class="tp-blog-wrapper mb-30 wow fadeInUp" data-wow-duration="1s"
-                     data-wow-delay=".5s">
-                        <div class="tp-blog-thumb">
-                           <a href="/destination/ntt/ntt"><img src="/static/assets/img/blog/blog-2.jpg" alt=""></a>
-                           <span class="tp-section__title-pre">02-April-2023</span>
-                        </div>
-                        <div class="tp-blog-content">
-                           <h3 class="tp-blog-title"><a href="/destination/ntt/ntt">Nusa Tenggara Timur</a></h3>
-                           <p>Nusa Tenggara Timur (NTT) is a province<br>  in Indonesia located in the eastern part of the Lesser Sunda Islands </p>
-                           <div class="tp-blog-btn">
-                              <a class="tp-btn" href="/destination/ntt/ntt">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-      <!-- blog area end -->
+      
       </main>
 
       <!-- footer area start -->
