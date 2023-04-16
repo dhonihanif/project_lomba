@@ -52,8 +52,8 @@
       </div>
       <!-- back to top end -->
       
-     <!-- header area start -->
-     <header class="tp-header-area p-relative tp-header-height">
+    <!-- header area start -->
+    <header class="tp-header-area p-relative tp-header-height">
       <div class="tp-header-top tp-header-space d-none d-lg-block">
          <div class="container-fluid">
             <div class="row align-items-center">
@@ -112,6 +112,9 @@
                                  <li> 
                                     <a href="/about">About</a>
                                  </li>
+                                 <li>
+                                    <a href="/food">Food</a>
+                                 </li>
                                  <li class="has-dropdown"> <a href="/">Destination</a>
                                     <ul class="submenu">
                                        <li><a href="/destination/bali/bali">Bali</a></li>
@@ -135,9 +138,7 @@
                                  </ul>
                                  </li>
                                  <li> <a href="/contact">Contact</a></li>
-                                 {% if login %}
-                                 <li> <a href="/profile/{{username}}">Profile</a></li>
-                                 {% endif %}
+                                 
                               </ul>
                            </nav>
                         </div>
@@ -146,14 +147,29 @@
                   <div class="col-6 col-lg-6 col-xl-3">
                      <div class="tp-header-right d-flex align-items-center justify-content-xxl-end">
                         <div class="tp-header-market mr-50 p-relative d-none d-xxl-block">
-                           </div>
+                           {% if login %}
+                           <a href="/return_cart"><i class="flaticon-shopping-cart"></i>
+                              <span>
+                                 {{count}}
+                              </span>
+                           </a>
+                           {% endif %}
+                        </div>
                            {% if login %}
                            <div class="tp-header-btn p-relative d-none d-xl-block">
-                              <a class="tp-btn" href="/logout"><i class="fa-light fa-arrow-right"></i> Logout</a>
+                              <div class="dropdown">
+                                 <button class="dropbtn">My Profile</button>
+                                 <div class="dropdown-content">
+                                    <a class="tp-btn" href="/profile/{{username}}"><i class="fa-light fa-arrow-right"></i> Profiles</a>
+                                    <a class="tp-btn" href="/logout"><i class="fa-light fa-arrow-right"></i> Logout</a>
+                                    
+                                 </div>
+                               </div>
                            </div>
                            {% else %}
                            <div class="tp-header-btn p-relative d-none d-xl-block">
                               <a class="tp-btn" href="/login"><i class="fa-light fa-arrow-right"></i> Login</a>
+                              
                            </div>
                            {% endif %}
                            <div class="mobile-menu d-block d-xl-none text-end">

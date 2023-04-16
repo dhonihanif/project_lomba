@@ -29,11 +29,14 @@ def index():
     cur.execute("SELECT * FROM login")
     curfet = cur.fetchall()
     name_user = [i[2] for i in curfet]
+    
     login = False
     if "username" in session:
         login = True
         email = session["username"]
-        return render_template("index.html", login=login, username=email, name_user=name_user, user2=session["username"])
+        cur.execute("SELECT count(*) from cart")
+        count = cur.fetchall()[0][0]
+        return render_template("index.html", login=login, username=email, name_user=name_user, user2=session["username"], count=count)
     return render_template("index.html", login=login, name_user=name_user)
 
 @app.route("/login", methods=["GET", "POST"])
@@ -41,6 +44,9 @@ def login():
     if request.method == "POST":
         username = request.form.get("email")
         password = request.form.get("password")
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT * FROM login")
+        curfet = cur.fetchall()
         user = [i[0] for i in curfet]
         pw = [i[1] for i in curfet]
         nama = [i[2] for i in curfet]
@@ -256,10 +262,43 @@ def foodd(name_province, name_destination):
                            title=title, describe=describe, image=image, price=price,
                            destination=destination, stock=stock)
 
-@app.route("/cart")
+@app.route("/return_cart")
+def return_cart():
+    login = False
+    user = ""
+    if "username" in session:
+        login = True
+        user = session["username"]
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT * FROM cart")
+        curfet = cur.fetchall()
+        images = [i[1] for i in curfet]
+        title = [i[0] for i in curfet]
+        price = [i[2] for i in curfet]
+        purchase_amount = [i[3] for i in curfet]
+
+    return render_template("cart.html", login=login, username=user,
+                           images=images, title=title, price=price, purchase_amount=purchase_amount)
+
+@app.route("/cart", methods=["GET","POST"])
 def cart():
     login = False
     user = ""
-    
+    if "username" in session:
+        login = True
+        user = session["username"]
+        data = request.get_json()
+        cur = mysql.connection.cursor()
+        query = "INSERT INTO cart (title, images, price, purchase_amount) values (%s, %s, %s, %s)"
+        cur.execute(query, (data["title"], data["image"], data["price"], data["purchase_amount"]))
+                    
+        cur.fetchall()
+        mysql.connection.commit()
+        cur.close()
+        
+        redirect(url_for("return_cart"))
+
+    return redirect(url_for("login"))     
+   
 if __name__ == "__main__":
     app.run(debug=True)

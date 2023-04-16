@@ -153,7 +153,13 @@
                         <div class="col-6 col-lg-6 col-xl-3">
                            <div class="tp-header-right d-flex align-items-center justify-content-xxl-end">
                               <div class="tp-header-market mr-50 p-relative d-none d-xxl-block">
-                                    
+                                 {% if login %}
+                                 <a href="/return_cart"><i class="flaticon-shopping-cart"></i>
+                                    <span>
+                                       {{count}}
+                                    </span>
+                                 </a>
+                                 {% endif %}
                               </div>
                                  {% if login %}
                                  <div class="tp-header-btn p-relative d-none d-xl-block">
