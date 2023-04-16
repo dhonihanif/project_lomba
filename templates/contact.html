@@ -95,7 +95,7 @@
                   <div class="row align-items-center">
                      <div class="col-6 col-lg-6 col-xl-2">
                         <div class="tp-header-logo tp-header-logo-border">
-                           <a href="index.html">
+                           <a href="">
                               <img src="/static/assets/img/logo/logo.png" alt="">
                            </a>
                         </div>
@@ -115,27 +115,29 @@
                                     <li class="has-dropdown"> <a href="/">Destination</a>
                                        <ul class="submenu">
                                           <li><a href="/destination/bali/bali">Bali</a></li>
-                                          <li><a href="/destination/raja_ampat/raja_ampat">Raja Ampat</a></li>
+                                          <li><a href="/destination/papua/papua">Papua</a></li>
                                           <li><a href="/destination/yogyakarta/yogyakarta">Yogyakarta</a></li>
                                           <li><a href="/destination/palembang/palembang">Palembang</a></li>
-                                          <li><a href="/destination/tanah_toraja/tanah_toraja">Tanah Toraja</a></li>
-                                          <li><a href="/destination/lombok/lombok">Lombok</a></li>
+                                          <li><a href="/destination/sulawesi/sulawesi">Sulawesi</a></li>
                                           <li><a href="/destination/ntt/ntt">NTT</a></li>
-                                       
+                                          <li><a href="/destination/jakarta/jakarta">Jakarta</a>
                                        </ul>
                                     </li>
-                                    <li class="has-dropdown"><a href="blog.html">Statistics</a>
+                                    <li class="has-dropdown"><a href="/">Statistics</a>
                                     <ul class="submenu">
-                                       <li><a href="bali_statistic.html">Bali</a></li>
-                                       <li><a href="raja_ampat_statistic.html">Raja Ampat</a></li>
-                                       <li><a href="yogyakarta_statistic.html">Yogyakarta</a></li>
-                                       <li><a href="palembang_statistic.html">Palembang</a></li>
-                                       <li><a href="tanah_toraja_statistic.html">Tanah Toraja</a></li>
-                                       <li><a href="lombok_statistic.html">Lombok</a></li>
-                                       <li><a href="ntt_statistic.html">NTT</a></li>
+                                       <li><a href="/statistics/bali">Bali</a></li>
+                                       <li><a href="/statistics/papua">Papua</a></li>
+                                       <li><a href="/statistics/yogyakarta">Yogyakarta</a></li>
+                                       <li><a href="/statistics/palembang">Palembang</a></li>
+                                       <li><a href="/statistics/sulawesi">Sulawesi</a></li>
+                                       <li><a href="/statistics/ntt">NTT</a></li>
+                                       <li><a href="/statistics/jakarta">Jakarta</a></li>
                                     </ul>
                                     </li>
                                     <li> <a href="/contact">Contact</a></li>
+                                    {% if login %}
+                                    <li> <a href="/profile/{{username}}">Profile</a></li>
+                                    {% endif %}
                                  </ul>
                               </nav>
                            </div>
@@ -145,9 +147,15 @@
                         <div class="tp-header-right d-flex align-items-center justify-content-xxl-end">
                            <div class="tp-header-market mr-50 p-relative d-none d-xxl-block">
                               </div>
+                              {% if login %}
                               <div class="tp-header-btn p-relative d-none d-xl-block">
-                                 <a class="tp-btn" href="contact.html"><i class="fa-light fa-arrow-right"></i> Login</a>
+                                 <a class="tp-btn" href="/logout"><i class="fa-light fa-arrow-right"></i> Logout</a>
                               </div>
+                              {% else %}
+                              <div class="tp-header-btn p-relative d-none d-xl-block">
+                                 <a class="tp-btn" href="/login"><i class="fa-light fa-arrow-right"></i> Login</a>
+                              </div>
+                              {% endif %}
                               <div class="mobile-menu d-block d-xl-none text-end">
                                  <button class="tp-side-action tp-toogle hamburger-btn">
                                     <span></span>
@@ -168,7 +176,7 @@
       <div class="tp-offcanvas-area fix">
       <div class="tp-side-info">
          <div class="tp-side-logo">
-            <a href="index.html">
+            <a href="/">
                <img src="/static/assets/img/logo/logo.png" alt="logo">
             </a>
          </div>
@@ -198,10 +206,9 @@
                </ul>
             </div>
             <div class="tp-sidebar-icons tp-btn-effect-blue">
-               <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-               <a href="#"><i class="fa-brands fa-twitter"></i></a>
-               <a href="#"><i class="fa-brands fa-skype"></i></a>
-               <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+               <a href="https://www.facebook.com/profile.php?id=100023804071745"><i class="fa-brands fa-facebook-f"></i></a>
+               <a href="https://twitter.com/DhoniHanif"><i class="fa-brands fa-twitter"></i></a>
+               <a href="https://www.linkedin.com/in/dhoni-hanif-supriyadi-6a93971bb/"><i class="fa-brands fa-linkedin-in"></i></a>
             </div>
          </div>
       </div>

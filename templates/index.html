@@ -118,30 +118,33 @@
                                        <li> 
                                           <a href="/about">About</a>
                                        </li>
+                                       <li>
+                                          <a href="/food">Food</a>
+                                       </li>
                                        <li class="has-dropdown"> <a href="/">Destination</a>
                                           <ul class="submenu">
                                              <li><a href="/destination/bali/bali">Bali</a></li>
-                                             <li><a href="/destination/raja_ampat/raja_ampat">Raja Ampat</a></li>
+                                             <li><a href="/destination/papua/papua">Papua</a></li>
                                              <li><a href="/destination/yogyakarta/yogyakarta">Yogyakarta</a></li>
                                              <li><a href="/destination/palembang/palembang">Palembang</a></li>
-                                             <li><a href="/destination/tanah_toraja/tanah_toraja">Tanah Toraja</a></li>
-                                             <li><a href="/destination/lombok/lombok">Lombok</a></li>
+                                             <li><a href="/destination/sulawesi/sulawesi">Sulawesi</a></li>
                                              <li><a href="/destination/ntt/ntt">NTT</a></li>
-                                          
+                                             <li><a href="/destination/jakarta/jakarta">Jakarta</a>
                                           </ul>
                                        </li>
-                                       <li class="has-dropdown"><a href="blog.html">Statistics</a>
+                                       <li class="has-dropdown"><a href="/">Statistics</a>
                                        <ul class="submenu">
                                           <li><a href="/statistics/bali">Bali</a></li>
-                                          <li><a href="/statistics/raja_ampat">Raja Ampat</a></li>
+                                          <li><a href="/statistics/papua">Papua</a></li>
                                           <li><a href="/statistics/yogyakarta">Yogyakarta</a></li>
                                           <li><a href="/statistics/palembang">Palembang</a></li>
-                                          <li><a href="/statistics/tana_toraja">Tanah Toraja</a></li>
-                                          <li><a href="/statistics/lombok">Lombok</a></li>
+                                          <li><a href="/statistics/sulawesi">Sulawesi</a></li>
                                           <li><a href="/statistics/ntt">NTT</a></li>
+                                          <li><a href="/statistics/jakarta">Jakarta</a></li>
                                        </ul>
                                        </li>
                                        <li> <a href="/contact">Contact</a></li>
+                                       
                                     </ul>
                                  </nav>
                               </div>
@@ -150,14 +153,23 @@
                         <div class="col-6 col-lg-6 col-xl-3">
                            <div class="tp-header-right d-flex align-items-center justify-content-xxl-end">
                               <div class="tp-header-market mr-50 p-relative d-none d-xxl-block">
-                                 </div>
+                                    
+                              </div>
                                  {% if login %}
                                  <div class="tp-header-btn p-relative d-none d-xl-block">
-                                    <a class="tp-btn" href="/logout"><i class="fa-light fa-arrow-right"></i> Logout</a>
+                                    <div class="dropdown">
+                                       <button class="dropbtn">My Profile</button>
+                                       <div class="dropdown-content">
+                                          <a class="tp-btn" href="/profile/{{username}}"><i class="fa-light fa-arrow-right"></i> Profiles</a>
+                                          <a class="tp-btn" href="/logout"><i class="fa-light fa-arrow-right"></i> Logout</a>
+                                          
+                                       </div>
+                                     </div>
                                  </div>
                                  {% else %}
                                  <div class="tp-header-btn p-relative d-none d-xl-block">
                                     <a class="tp-btn" href="/login"><i class="fa-light fa-arrow-right"></i> Login</a>
+                                    
                                  </div>
                                  {% endif %}
                                  <div class="mobile-menu d-block d-xl-none text-end">
@@ -210,10 +222,9 @@
                   </ul>
                </div>
                <div class="tp-sidebar-icons tp-btn-effect-blue">
-                  <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                  <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                  <a href="#"><i class="fa-brands fa-skype"></i></a>
-                  <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                  <a href="https://www.facebook.com/profile.php?id=100023804071745"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="https://twitter.com/DhoniHanif"><i class="fa-brands fa-twitter"></i></a>
+                  <a href="https://www.linkedin.com/in/dhoni-hanif-supriyadi-6a93971bb/"><i class="fa-brands fa-linkedin-in"></i></a>
                </div>
             </div>
          </div>
@@ -378,9 +389,9 @@
                <div class="col-lg-12">
                   <div class="tp-section-title-wrapper text-center">
                      <span class="tp-section__title-pre">
-                        trusted partner’s
+                        Some Destination
                      </span>
-                     <h3 class="tp-section__title">Tursted By These Brands</h3>
+                     <h3 class="tp-section__title">Some Destination of Indonesia</h3>
                   </div>
                   <div class="slider-active splide mt-75" >
                      <div class="splide__track">
@@ -426,11 +437,11 @@
                   <div class="tp-features-item-wrapper mb-50 wow fadeInUp" data-wow-duration="1s"
                   data-wow-delay=".3">
                      <div class="tp-features-item-thumb text-center">
-                        <img src="/static/assets/img/brand/img-2.jpg" alt=""> 
+                        <img src="/static/assets/img/shop/food.jpg" alt=""> 
                      </div>
                      <div class="tp-features-item-content">
                         <h4 class="tp-features-item-title"><a href="/destination/bali/bali">Indonesian Place</a></h4>
-                        <p>Discovering Indonesia: The Land of Natural Beauty and Cultural Wonders</p>
+                        <p>Indonesian Food: various types of Indonesian traditional food</p>
                      </div>
                      <div class="tp-btn-effect">
                         <a class="feature-btn" href="/destination/bali/bali"><i class="fa-regular fa-arrow-up-right"></i></a>
@@ -445,10 +456,25 @@
                      </div>
                      <div class="tp-features-item-content">
                         <h4 class="tp-features-item-title"><a href="/destination/bali/bali">Indonesian Culture</a></h4>
-                        <p>Indonesian Culture: Discover the Richness and Diversity of Traditions</p>
+                        <p>Discovering Indonesia: The Land of Natural Beauty and Cultural Wonders</p>
                      </div>
                      <div class="tp-btn-effect">
                         <a class="feature-btn" href="/destination/bali/bali"><i class="fa-regular fa-arrow-up-right"></i></a>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                  <div class="tp-features-item-wrapper mb-50 wow fadeInUp" data-wow-duration="1s"
+                  data-wow-delay=".3">
+                     <div class="tp-features-item-thumb text-center">
+                        <img src="/static/assets/img/brand/statistics.png" alt=""> 
+                     </div>
+                     <div class="tp-features-item-content">
+                        <h4 class="tp-features-item-title"><a href="/statistics/bali">Indonesian Statistics</a></h4>
+                        <p>Indonesian Statistics: Discover the statistics of every destination</p>
+                     </div>
+                     <div class="tp-btn-effect">
+                        <a class="feature-btn" href="/statistics/bali"><i class="fa-regular fa-arrow-up-right"></i></a>
                      </div>
                   </div>
                </div>

@@ -115,27 +115,29 @@
                                     <li class="has-dropdown"> <a href="/">Destination</a>
                                        <ul class="submenu">
                                           <li><a href="/destination/bali/bali">Bali</a></li>
-                                          <li><a href="/destination/raja_ampat/raja_ampat">Raja Ampat</a></li>
+                                          <li><a href="/destination/papua/papua">Papua</a></li>
                                           <li><a href="/destination/yogyakarta/yogyakarta">Yogyakarta</a></li>
                                           <li><a href="/destination/palembang/palembang">Palembang</a></li>
-                                          <li><a href="/destination/tanah_toraja/tanah_toraja">Tanah Toraja</a></li>
-                                          <li><a href="/destination/lombok/lombok">Lombok</a></li>
+                                          <li><a href="/destination/sulawesi/sulawesi">Sulawesi</a></li>
                                           <li><a href="/destination/ntt/ntt">NTT</a></li>
-                                       
+                                          <li><a href="/destination/jakarta/jakarta">Jakarta</a>
                                        </ul>
                                     </li>
-                                    <li class="has-dropdown"><a href="blog.html">Statistics</a>
+                                    <li class="has-dropdown"><a href="/">Statistics</a>
                                     <ul class="submenu">
                                        <li><a href="/statistics/bali">Bali</a></li>
-                                       <li><a href="/statistics/raja_ampat">Raja Ampat</a></li>
+                                       <li><a href="/statistics/papua">Papua</a></li>
                                        <li><a href="/statistics/yogyakarta">Yogyakarta</a></li>
                                        <li><a href="/statistics/palembang">Palembang</a></li>
-                                       <li><a href="/statistics/tana_toraja">Tanah Toraja</a></li>
-                                       <li><a href="/statistics/lombok">Lombok</a></li>
+                                       <li><a href="/statistics/sulawesi">Sulawesi</a></li>
                                        <li><a href="/statistics/ntt">NTT</a></li>
+                                       <li><a href="/statistics/jakarta">Jakarta</a></li>
                                     </ul>
                                     </li>
                                     <li> <a href="/contact">Contact</a></li>
+                                    {% if login %}
+                                    <li> <a href="/profile/{{username}}">Profile</a></li>
+                                    {% endif %}
                                  </ul>
                               </nav>
                            </div>
@@ -145,9 +147,15 @@
                         <div class="tp-header-right d-flex align-items-center justify-content-xxl-end">
                            <div class="tp-header-market mr-50 p-relative d-none d-xxl-block">
                               </div>
+                              {% if login %}
+                              <div class="tp-header-btn p-relative d-none d-xl-block">
+                                 <a class="tp-btn" href="/logout"><i class="fa-light fa-arrow-right"></i> Logout</a>
+                              </div>
+                              {% else %}
                               <div class="tp-header-btn p-relative d-none d-xl-block">
                                  <a class="tp-btn" href="/login"><i class="fa-light fa-arrow-right"></i> Login</a>
                               </div>
+                              {% endif %}
                               <div class="mobile-menu d-block d-xl-none text-end">
                                  <button class="tp-side-action tp-toogle hamburger-btn">
                                     <span></span>
@@ -164,51 +172,49 @@
       </header>
    <!-- header area end -->
 
-
-         <!-- mobile menu style start -->
-         <div class="tp-offcanvas-area fix">
-            <div class="tp-side-info">
-               <div class="tp-side-logo">
-                  <a href="index.html">
-                     <img src="/static/assets/img/logo/logo.png" alt="logo">
-                  </a>
-               </div>
-               <div class="tp-side-close">
-                  <button> <i class="fa-thin fa-xmark"></i></button>
-               </div>
-               <div class="tp-mobile-menu-pos"></div>
-               <div class="tp-side-content p-relative">
-                  <div class="tp-sidebar__contact">
-                     <h4 class="tp-sidebar-title">Contact Info</h4>
-                     <ul>
-                        <li class="d-flex align-items-center">
-                           <div class="tp-sidebar__contact-text">
-                              <a target="_blank" href="https://www.google.com/maps/@-6.3008695,106.9101335,3a,75y,343.57h,66.98t/data=!3m6!1e1!3m4!1s6WqztY0bvgSZSK8E_nEEQg!2e0!7i16384!8i8192"><i class="fal fa-map-marker-alt"></i> Lubang Buaya, Jakarta, Indonesia.</a>
-                           </div>
-                        </li>
-                        <li class="d-flex align-items-center">
-                           <div class="tp-sidebar__contact-text">
-                              <a href="telto:0895326168335"><i class="far fa-phone"></i> 0895326168335</a>
-                           </div>
-                        </li>
-                        <li class="d-flex align-items-center">
-                           <div class="tp-sidebar__contact-text">
-                              <a href="mailto:dhonihanif@gmail.com"><i class="fal fa-envelope"></i> dhonihanif354@gmail.com</a>
-                           </div>
-                        </li>
-                     </ul>
-                  </div>
-                  <div class="tp-sidebar-icons tp-btn-effect-blue">
-                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                     <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                     <a href="#"><i class="fa-brands fa-skype"></i></a>
-                     <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                  </div>
-               </div>
+   <!-- mobile menu style start -->
+      <div class="tp-offcanvas-area fix">
+      <div class="tp-side-info">
+         <div class="tp-side-logo">
+            <a href="/">
+               <img src="/static/assets/img/logo/logo.png" alt="logo">
+            </a>
+         </div>
+         <div class="tp-side-close">
+            <button> <i class="fa-thin fa-xmark"></i></button>
+         </div>
+         <div class="tp-mobile-menu-pos"></div>
+         <div class="tp-side-content p-relative">
+            <div class="tp-sidebar__contact">
+               <h4 class="tp-sidebar-title">Contact Info</h4>
+               <ul>
+                  <li class="d-flex align-items-center">
+                     <div class="tp-sidebar__contact-text">
+                        <a target="_blank" href="https://www.google.com/maps/@-6.3008695,106.9101335,3a,75y,343.57h,66.98t/data=!3m6!1e1!3m4!1s6WqztY0bvgSZSK8E_nEEQg!2e0!7i16384!8i8192"><i class="fal fa-map-marker-alt"></i> Lubang Buaya, Jakarta, Indonesia.</a>
+                     </div>
+                  </li>
+                  <li class="d-flex align-items-center">
+                     <div class="tp-sidebar__contact-text">
+                        <a href="telto:0895326168335"><i class="far fa-phone"></i> 0895326168335</a>
+                     </div>
+                  </li>
+                  <li class="d-flex align-items-center">
+                     <div class="tp-sidebar__contact-text">
+                        <a href="mailto:dhonihanif@gmail.com"><i class="fal fa-envelope"></i> dhonihanif354@gmail.com</a>
+                     </div>
+                  </li>
+               </ul>
             </div>
-            <div class="offcanvas-overlay"></div>
+            <div class="tp-sidebar-icons tp-btn-effect-blue">
+               <a href="https://www.facebook.com/profile.php?id=100023804071745"><i class="fa-brands fa-facebook-f"></i></a>
+               <a href="https://twitter.com/DhoniHanif"><i class="fa-brands fa-twitter"></i></a>
+               <a href="https://www.linkedin.com/in/dhoni-hanif-supriyadi-6a93971bb/"><i class="fa-brands fa-linkedin-in"></i></a>
             </div>
-         <!-- mobile menu style end -->
+         </div>
+      </div>
+      <div class="offcanvas-overlay"></div>
+      </div>
+   <!-- mobile menu style end -->
 
       <main>
          <!-- about breadcrumb area start -->
@@ -257,7 +263,7 @@
                            <img src="/static/assets/img/destination/palembang/jembatan_ampera.jpg" alt="">
                         </div>
                        <div class="tp-service-2-inner">
-                        <h4 class="tp-service-title"><a href="/destination/palembang/jembatan_ampera">Jembatan Ampera</a></h4>
+                        <h4 class="tp-service-title"><a href="/destination/palembang/jembatan_ampera">Ampera Bridge</a></h4>
                         <p>The Ampera Bridge was built in 1962 </p>
                         <div class="tp-service-2-btn">
                            <a href="/destination/palembang/jembatan_ampera">Details <i class="fa-regular fa-arrow-right-long"></i></a>
@@ -297,6 +303,60 @@
                         <p>This mall consists of 5 floors</p>
                         <div class="tp-service-2-btn">
                            <a href="/destination/palembang/palembang_icon_mall">Details <i class="fa-regular fa-arrow-right-long"></i></a>
+                        </div>
+                       </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-3 col-lg-4 col-md-6">
+                     <div class="tp-service-2-item p-relative mb-30 wow fadeInUp" data-wow-duration="1s"
+                     data-wow-delay=".5s">
+                        <div class="item-2-shape">
+                           <img src="/static/assets/img/services/home-2/shape.png" alt="">
+                        </div>
+                        <div class="tp-service-2-thumb text-center">
+                           <img src="/static/assets/img/destination/palembang/kemaro_island.png" alt="">
+                        </div>
+                       <div class="tp-service-2-inner">
+                        <h4 class="tp-service-title"><a href="/destination/palembang/kemaro_island">Kemaro Island</a></h4>
+                        <p>Located in a small delta of the Musi River</p>
+                        <div class="tp-service-2-btn">
+                           <a href="/destination/palembang/kemaro_island">Details <i class="fa-regular fa-arrow-right-long"></i></a>
+                        </div>
+                       </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-3 col-lg-4 col-md-6">
+                     <div class="tp-service-2-item p-relative mb-30 wow fadeInUp" data-wow-duration="1s"
+                     data-wow-delay=".5s">
+                        <div class="item-2-shape">
+                           <img src="/static/assets/img/services/home-2/shape.png" alt="">
+                        </div>
+                        <div class="tp-service-2-thumb text-center">
+                           <img src="/static/assets/img/destination/palembang/monpera.png" alt="">
+                        </div>
+                       <div class="tp-service-2-inner">
+                        <h4 class="tp-service-title"><a href="/destination/palembang/monpera">Monpera</a></h4>
+                        <p>Monpera, or the Monument of People’s Struggle</p>
+                        <div class="tp-service-2-btn">
+                           <a href="/destination/palembang/monpera">Details <i class="fa-regular fa-arrow-right-long"></i></a>
+                        </div>
+                       </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-3 col-lg-4 col-md-6">
+                     <div class="tp-service-2-item p-relative mb-30 wow fadeInUp" data-wow-duration="1s"
+                     data-wow-delay=".5s">
+                        <div class="item-2-shape">
+                           <img src="/static/assets/img/services/home-2/shape.png" alt="">
+                        </div>
+                        <div class="tp-service-2-thumb text-center">
+                           <img src="/static/assets/img/destination/palembang/kuto_besak.png" alt="">
+                        </div>
+                       <div class="tp-service-2-inner">
+                        <h4 class="tp-service-title"><a href="/destination/palembang/kuto_besak">Kuto Besak</a></h4>
+                        <p>Currently the HQ of defence command Kodam II/Sriwijaya</p>
+                        <div class="tp-service-2-btn">
+                           <a href="/destination/palembang/kuto_besak">Details <i class="fa-regular fa-arrow-right-long"></i></a>
                         </div>
                        </div>
                      </div>
