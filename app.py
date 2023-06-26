@@ -423,5 +423,15 @@ def member():
 
     return render_template("member.html", login=login, username=user, data=usernames, length=length, total=total)
 
+@app.route("/button_member/<username>")
+def button_member(username):
+    cur = mysql.connection.cursor()
+    cur.execute(f"DELETE FROM login WHERE username='{username}'")
+    cur.fetchall()
+    mysql.connection.commit()
+    cur.close()
+    
+    return redirect("member")
+
 if __name__ == "__main__":
     app.run(debug=True)
