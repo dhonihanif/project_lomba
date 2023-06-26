@@ -145,6 +145,48 @@ def profile(username):
     return render_template("profile.html", login=login, user=user, email=email, name=name, 
                            usia=usia, tempat_tinggal=tempat_tinggal, no_telp=no_telp, username=session["username"])
 
+@app.route("/update_profile/<username>")
+def update_profile(username):
+    login = False
+    user = ""
+    if "username" in session:
+        login = True
+        user = session["nama"]
+        cur = mysql.connection.cursor()
+        cur.execute(f"SELECT * FROM login WHERE username='{username}'")
+        member = cur.fetchall()
+        email = member[0][0]
+        name = member[0][2]
+        usia = member[0][4]
+        tempat_tinggal = member[0][3]
+        no_telp = member[0][5]
+
+    return render_template("update_profile.html", login=login, user=user, email=email, name=name, 
+                           usia=usia, tempat_tinggal=tempat_tinggal, no_telp=no_telp, username=session["username"])
+
+@app.route("/update", methods=['GET', 'POST'])
+def update():
+    login = False
+    user = ""
+    if "username" in session:
+        login = True
+        user = session["nama"]
+        name = request.form.get("name")
+        usia = request.form.get("age")
+        tempat_tinggal = request.form.get("tinggal")
+        no_telp = request.form.get("no_telp")
+        cur = mysql.connection.cursor()
+        listt = ["name", "tempat_tinggal", "usia", "telp"]
+        listt2 = [name, tempat_tinggal, usia, no_telp]
+        for i, j in zip(listt, listt2):
+            username = session["username"]
+            cur.execute(f"UPDATE login SET {i} = '{j}' WHERE username='{username}'")
+            mysql.connection.commit()
+        
+        cur.close()
+    
+    return redirect(url_for("profile", username=username))
+
 @app.template_global(name='zip')
 def _zip(*args, **kwargs): #to not overwrite builtin zip in globals
     return __builtins__.zip(*args, **kwargs)
@@ -193,31 +235,6 @@ def statistics(name_destination):
                            min=df["data"].min(), max=df["data"].max(), mean=df["data"].mean(), variance=df["data"].var(), 
                            username=user, login=login)
 
-@app.route("/create_posting", methods=["GET", "POST"])
-def create_posting():
-    login = True
-    user = session["username"]
-    if request.method == "POST":
-        title = request.form.get("title")
-        sub_title = request.form.get("sub_title")
-        location = request.form.get("location")
-        source = request.form.get("source")
-        destination = request.form.get("destination")
-        image = request.files["image"]
-        image_name = image.filename
-        image_path = os.path.join(f"static/assets/img/destination/bali/", image_name)
-        image.save(image_path)
-        content = request.form.get("content")
-        username = session["username"]
-        cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO posting (title, sub_title, image, location, source, destination, content, username) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
-                    (title, sub_title, image_path, location, source, destination, content, username))
-        cur2 = cur.fetchall()
-        mysql.connection.commit()
-        cur.close()
-        return redirect(url_for(f"destination", name_province=destination, name_destination=destination))
-    else:
-        return render_template("create_posting.html", login=login, username=user)
 
 @app.route("/food")
 def food():
@@ -272,13 +289,14 @@ def return_cart():
         cur = mysql.connection.cursor()
         cur.execute("SELECT * FROM cart")
         curfet = cur.fetchall()
-        images = [i[1] for i in curfet]
-        title = [i[0] for i in curfet]
-        price = [i[2] for i in curfet]
-        purchase_amount = [i[3] for i in curfet]
+        images = [i[2] for i in curfet]
+        title = [i[1] for i in curfet]
+        price = [i[3] for i in curfet]
+        purchase_amount = [i[4] for i in curfet]
 
-    return render_template("cart.html", login=login, username=user,
-                           images=images, title=title, price=price, purchase_amount=purchase_amount)
+        return render_template("cart.html", login=login, username=user,
+                           images=images, title=title, price=price, purchase_amount=purchase_amount, total=sum(price))
+    return redirect(url_for("login"))
 
 @app.route("/cart", methods=["GET","POST"])
 def cart():
@@ -289,8 +307,8 @@ def cart():
         user = session["username"]
         data = request.get_json()
         cur = mysql.connection.cursor()
-        query = "INSERT INTO cart (title, images, price, purchase_amount) values (%s, %s, %s, %s)"
-        cur.execute(query, (data["title"], data["image"], data["price"], data["purchase_amount"]))
+        query = "INSERT INTO cart (title, images, price, purchase_amount, username) values (%s, %s, %s, %s, %s)"
+        cur.execute(query, (data["title"], data["image"], data["price"], data["purchase_amount"], user))
                     
         cur.fetchall()
         mysql.connection.commit()
@@ -299,6 +317,111 @@ def cart():
         redirect(url_for("return_cart"))
 
     return redirect(url_for("login"))     
-   
+
+@app.route("/checkout", methods=["GET", "POST"])
+def checkout():
+    login = False
+    user = ""
+    if "username" in session:
+        login = True
+        user = session["username"]
+        cur = mysql.connection.cursor()
+        cur.execute(f"SELECT title, price, purchase_amount, if(purchase_amount>0, price*purchase_amount, 0) as sum FROM cart WHERE username='{user}'")
+        cart = cur.fetchall()
+        global title
+        title = [i[0] for i in cart]
+        price = [i[1] for i in cart]
+        purchase = [i[2] for i in cart]
+        total = [i[3] for i in cart]
+
+    return render_template("checkout.html", login=login, username=user,
+                           title=title, price=price, purchase=purchase, sub_total=total, total=sum(total))
+
+@app.route("/remove/<title>")
+def remove(title):
+    cur = mysql.connection.cursor()
+    cur.execute(f"DELETE FROM cart WHERE title='{title}'")
+    cur.fetchall()
+    mysql.connection.commit()
+    cur.close()
+    
+    return redirect(url_for("return_cart"))
+
+@app.route("/order", methods=["GET", "POST"])
+def pesan():
+    login = False
+    if "username" in session:
+        login = True
+    cur = mysql.connection.cursor()
+    cur.execute(f"SELECT * FROM cart WHERE username='{session['username']}'")
+    curfet = cur.fetchall()
+    user = [i[1] for i in curfet if i[1] == session["username"]]
+    if request.method == "POST":
+        food = ",".join(title)
+        payment = request.form.get("pembayaran")
+        price = request.form.get("total")
+        bayar = "Already Paid"
+        cur.execute("INSERT INTO pesanan(food, payment, price, bayar, username) values ('%s', '%s', '%s', '%s', '%s')" % (food, payment, price, bayar, session["username"]))
+        cur2 = cur.fetchall()
+        mysql.connection.commit()
+        cur.execute("DELETE FROM cart WHERE username='%s'" % (session["username"]))        
+        cur.fetchall()
+        mysql.connection.commit()
+        cur.close()
+        return redirect(url_for("pesanan", login=login, user=user, username=user))
+    else:
+        return render_template("pesan.html", login=login, user=user, username=user)
+
+@app.route("/pesanan")
+def pesanan():
+    login = False
+    if "username" in session:
+        login = True
+    return redirect(url_for("index"))
+
+@app.route("/food_admin")
+def food_admin():
+    login = False
+    user = ""
+    if "username" in session:
+        login = True
+        user = session["username"]
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT username, food, diantar from pesanan WHERE bayar != 'Not yet paid'")
+        cur2 = cur.fetchall()
+        usernames = [i[0] for i in cur2]
+        food = [i[1] for i in cur2]
+        diantar = [i[2] for i in cur2]
+        total = len(usernames)
+        length = [i+1 for i in range(total)]
+    
+    return render_template("food_admin.html", login=login, username=user, data=usernames, length=length, total=total, food=food, diantar=diantar)
+
+@app.route("/button_food/<username>")
+def button_food(username):
+    cur = mysql.connection.cursor()
+    cur.execute(f"DELETE FROM pesanan WHERE username='{username}'")
+    cur.fetchall()
+    mysql.connection.commit()
+    cur.close()
+    
+    return redirect("food_admin")
+
+@app.route("/member")
+def member():
+    login = False
+    user = ""
+    if "username" in session:
+        login = True
+        user = session["username"]
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT username FROM LOGIN")
+        cur2 = cur.fetchall()
+        usernames = [i[0] for i in cur2][1:]
+        total = len(usernames)
+        length = [i+1 for i in range(total)]
+
+    return render_template("member.html", login=login, username=user, data=usernames, length=length, total=total)
+
 if __name__ == "__main__":
     app.run(debug=True)

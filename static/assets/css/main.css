@@ -170,6 +170,10 @@ body {
   line-height: 26px;
 }
 
+button.checked::before {
+  content: "\2713"; /* Unicode character for checkmark */
+  margin-right: 5px;
+}
 a {
   text-decoration: none;
 }

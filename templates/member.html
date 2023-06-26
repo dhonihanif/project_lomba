@@ -26,7 +26,6 @@
       <link rel="stylesheet" href="/static/assets/css/main.css">
 
    </head>
-
    <body>
       <!--[if lte IE 9]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -241,10 +240,10 @@
          <div class="offcanvas-overlay"></div>
          </div>
       <!-- mobile menu style end -->
-
+   
       <main>
          <!-- about breadcrumb area start -->
-            <section class="breadcrumb__area breadcrumb-style pt-130 pb-115 p-relative z-index-1" data-background="/static/assets/img/destination/sulawesi/londa.png">
+            <section class="breadcrumb__area breadcrumb-style pt-130 pb-115 p-relative z-index-1" data-background="/static/assets/img/destination/bali/mount_batur.png">
                <div class="breadcrumb__bg-overlay m-img"></div>
                <div class="breadcrumb-shape  d-none d-lg-block">
                <div class="shape-1">
@@ -258,11 +257,11 @@
                   <div class="row justify-content-center">
                      <div class="col-xl-10">
                         <div class="breadcrumb__content text-center">
-                           <h3 class="breadcrumb__title">Londa</h3>
+                           <h3 class="breadcrumb__title">Member</h3>
                            <div class="breadcrumb__list breadcrumb__list-translate">
                               <span><a href="/">Home</a></span>
                               <span class="dvdr"><i class="fa-sharp fa-regular fa-minus"></i></span>
-                              <span>Londa</span>
+                              <span>Member</span>
                            </div>
                         </div>
                      </div>
@@ -275,28 +274,26 @@
             <section class="tp-project-details-area pt-120 pb-90">
                <div class="container">
                   <div class="row">
-                     <div class="col-lg-12 wow fadeInUp" data-wow-duration="1s"
-                     data-wow-delay=".3s">
-                        <div class="tp-project-details-thumb-1 mb-35">
-                           <img src="/static/assets/img/destination/sulawesi/londa.png" alt="">
-                        </div>
-                     </div>
+                     
                   </div>
                   <div class="row">
                      <div class="col-lg-8">
                         <div class="tp-project-details-text mb-50">
-                           <h3 class="tp-project-details-title">Londa</h3>
-                            <p>Londa is another Torajan burial ground, though there are actually two funeral sites at Londa. It is similar to both Lemo and Ke’te Kesu. The first site has cliff burials, where tombs have been dug out of the cliff face. The second site has two caves where corpses are buried.</p>
-                            <p>If you want to enter the caves you can do. Be warned there are bones everywhere and it is a bit creepy. You need a light to visit the caves. You can rent a gas lantern if you want, but you can also just use the light on your phone. Most tourists visit Londa as part of an organised Tana Toraja day tour from Rantepao.</p>
+                           <h3 class="tp-project-details-title">Member of Website</h3>
+                            <p></p>
                         </div>
+                        <div class="tp-project-details-list">
+                            <ul>
+                                {% for i, j in zip(length, data) %}
+                               <li><span>{{i}}</span> {{j}} </li>
+                               {% endfor %}
+                            </ul>
+                         </div>
                      </div>
                      <div class="col-lg-4">
                         <div class="tp-project-details-list">
                            <ul>
-                              <li><span>Destination</span> Londa</li>
-                              <li><span>Photo</span> discoveryyourindonesia.com</li>
-                              <li><span>Date</span> 10 July 2013</li>
-                              <li><span>Location</span> Sulawesi</li>
+                              <li><span>Total Member</span> {{ total }}</li>
                            </ul>
                         </div>
                      </div>
@@ -305,24 +302,7 @@
                </div>
             </section>
          <!-- project details area end -->
-         <section class="tp-contact-input pt-100">
-            <div class="container">
-               
-               </div>
-         </section>
-      <!-- Place map area start -->
-      <div class="tp-contact-map-area">
-         <div class="container-fluid g-0">
-            <div class="row gx-0">
-               <div class="col-lg-12">
-                  <div class="tp-contact-map">
-                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31874.1611715834!2d119.86304596735424!3d-3.0219442091491207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d93ebde9ac5d2cb%3A0xa166bdac16b3ed53!2sLonda%20Ancient%20Graveyard!5e0!3m2!1sid!2sid!4v1680713885167!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-<!-- Place map area end -->
+        
       </main>
 
       <!-- footer area start -->
@@ -415,27 +395,28 @@
 
 
 
-   <!-- JS here -->
-   <script src="/static/assets/js/vendor/jquery.js"></script>
-   <script src="/static/assets/js/vendor/waypoints.js"></script>
-   <script src="/static/assets/js/bootstrap-bundle.js"></script>
-   <script src="/static/assets/js/meanmenu.js"></script>
-   <script src="/static/assets/js/swiper-bundle.js"></script>
-   <script src="/static/assets/js/splide.js"></script>
-   <script src="/static/assets/js/slick.min.js"></script>
-   <script src="/static/assets/js/nouislider.js"></script>
-   <script src="/static/assets/js/magnific-popup.js"></script>
-   <script src="/static/assets/js/nice-select.js"></script>
-   <script src="/static/assets/js/wow.js"></script>
-   <script src="/static/assets/js/datepicker.js"></script>
-   <script src="/static/assets/js/isotope-pkgd.js"></script>
-   <script src="/static/assets/js/imagesloaded-pkgd.js"></script>
-   <script src="/static/assets/js/jquery.appear.js"></script>
-   <script src="/static/assets/js/jquery.knob.js"></script>
-   <script src="/static/assets/js/circularProgressBar.min.js"></script>
-   <script src="/static/assets/js/purecounter.js"></script>
-   <script src="/static/assets/js/ajax-form.js"></script>
-   <script src="/static/assets/js/main.js"></script>
-</body>
+      <!-- JS here -->
+      <script src="/static/assets/js/vendor/jquery.js"></script>
+      <script src="/static/assets/js/vendor/waypoints.js"></script>
+      <script src="/static/assets/js/bootstrap-bundle.js"></script>
+      <script src="/static/assets/js/meanmenu.js"></script>
+      <script src="/static/assets/js/swiper-bundle.js"></script>
+      <script src="/static/assets/js/splide.js"></script>
+      <script src="/static/assets/js/slick.min.js"></script>
+      <script src="/static/assets/js/nouislider.js"></script>
+      <script src="/static/assets/js/magnific-popup.js"></script>
+      <script src="/static/assets/js/nice-select.js"></script>
+      <script src="/static/assets/js/wow.js"></script>
+      <script src="/static/assets/js/datepicker.js"></script>
+      <script src="/static/assets/js/isotope-pkgd.js"></script>
+      <script src="/static/assets/js/imagesloaded-pkgd.js"></script>
+      <script src="/static/assets/js/jquery.appear.js"></script>
+      <script src="/static/assets/js/jquery.knob.js"></script>
+      <script src="/static/assets/js/circularProgressBar.min.js"></script>
+      <script src="/static/assets/js/purecounter.js"></script>
+      <script src="/static/assets/js/ajax-form.js"></script>
+      <script src="/static/assets/js/main.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+   </body>
 </html>
-
